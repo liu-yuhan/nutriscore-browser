@@ -1,0 +1,24 @@
+{
+  "name": "uncover",
+  "version": "1.0.0",
+  "description": "Application écologique",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.epitech.eu:/jerome.bonnier@coding-academy.fr/codac-pff"
+  },
+  "author": "ChrisAnthem, Baboulinet, PikaPikachu, Linebaker, Malkom, CaoNiMa",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "config": "^3.1.0",
+    "express": "^4.17.0",
+    "express-validator": "^5.3.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.5.10"
+  }
+}
