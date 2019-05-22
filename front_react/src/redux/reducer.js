@@ -1,4 +1,4 @@
- import {combineReducer, combineReducers} from 'redux'
+ import {combineReducers} from 'redux'
  import {USER_VALID, ERR_MSG } from './action_type'
 
  const initUser={
