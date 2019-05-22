@@ -61,6 +61,40 @@ router.post('/:id', auth, async (req, res) => {
     console.error(error.message);
     res.status(500).send('Server Error');
   }
-});
+})
+
+router.post('/comments/:id',
+[
+   auth,
+   [
+     check('text', 'Need a comment !')
+     .not()
+     .isEmpty()
+   ]
+],
+
+  async(req, res) => {
+    const errors = validationResult(req);
+    if(!errors.isEmpty()) {
+      res.status(400).json({error: errors})
+    };
+    try{
+    let user = await User.findOne({ email: email })
+    let product = await Products.findById(req.params.id);
+
+    const newComment = {
+      text: req.body.text, 
+      user: req.user.id
+    };
+
+    product.comments.unshift(newComment);
+    await product.save()
+    res.json({product});
+  } catch(err){
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  };
+  }
+);
 
 module.exports = router;
