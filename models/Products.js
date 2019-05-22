@@ -3,7 +3,8 @@ const Schema = mongoose.Schema;
 
 const ProductSchema = new Schema({
   barcode: {
-    type: String
+    type: String,
+    unique: true
   },
   upvote: [
     {
@@ -18,6 +19,22 @@ const ProductSchema = new Schema({
       user: {
         type: Schema.Types.ObjectId,
         ref: 'users'
+      }
+    }
+  ],
+  comments:[
+    {
+      user: {
+        type: Schema.Types.ObjectId,
+        ref: 'users'
+      },
+      text: {
+        type: String,
+        required: true
+      },
+      date: {
+        type: String,
+        default: Date.now
       }
     }
   ]
