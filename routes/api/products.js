@@ -90,7 +90,7 @@ router.post('/comments/:id',
 
     product.comments.unshift(newComment);
     await product.save()
-    res.json({product});
+    res.json({product, user});
   } catch(err){
     console.error(err.message);
     res.status(500).send('Server Error');
