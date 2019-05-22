@@ -2,10 +2,13 @@ import React, {Component} from 'react';
 import { Container , Form, Col, Button } from 'react-bootstrap';
 import { Redirect } from 'react-router-dom';
 import {Row} from 'react-bootstrap'
-import  Header from "../../Composer/header";
+import  Header from "../../Components/header";
 import "../container_style.css"
+import {register} from '../../redux/action'
+import {connect} from 'react-redux'
 
-export default class Register extends Component{
+
+class Register extends Component{
     constructor(props){
         super(props)
         this.state={
@@ -25,11 +28,11 @@ export default class Register extends Component{
         var psw=this.state.password
         var psw_cfm=this.state.password_confirm
         if(psw===psw_cfm){
-            console.log(this.state)
+            this.props.register(this.state)
         }else{
             console.log("guigui")
         }
-    }
+    } 
 
     render() {   
         return(
@@ -75,3 +78,13 @@ export default class Register extends Component{
             </div>
         )}  
 }
+
+export default connect(
+    state=>({user : state.user}),
+    {register}
+)(Register)
+
+
+
+
+

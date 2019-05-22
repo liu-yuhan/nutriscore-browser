@@ -3,7 +3,7 @@
 
 import axios from "axios"
 
-export default function api_connector(url,data={},method="GET"  ){
+export default function api_connector (url,data={},method="GET"  ){
     if(method==="GET"){
         let paramStr = ''
         Object.keys(data).forEach(key=>{
