@@ -1,8 +1,9 @@
-//method for comunication between front and back 
+//method for comunication between app and api externe 
+// or front-end and back-end 
 
 import axios from "axios"
 
-function api_connector(url,data={},method="GET"  ){
+export default function api_connector(url,data={},method="GET"  ){
     if(method==="GET"){
         let paramStr = ''
         Object.keys(data).forEach(key=>{
