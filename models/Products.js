@@ -3,7 +3,8 @@ const Schema = mongoose.Schema;
 
 const ProductSchema = new Schema({
   barcode: {
-    type: String
+    type: String,
+    unique: true
   },
   upvote: [
     {
