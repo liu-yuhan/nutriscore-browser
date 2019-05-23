@@ -6,14 +6,14 @@ import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import {HashRouter as Router,Route,Switch }from 'react-router-dom'
 import store from './redux/store'
-import Scanner from './Components/Scanner'
+import Demo from './Components/Demo';
 
 
 ReactDOM.render(
    ( <Provider store={store}>
         <Router>
-            <Route path='/register' component={Register}  />
-            <Route path='/scan' component={Scanner} />
+            <Route path='/register' component={Register} />
+            <Route path='/scan' component={Demo} />
         </Router>
     </Provider>),document.getElementById('root')
 );
