@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Register from './Container/Register/register';
+import Scanner from './Components/Scanner';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import {HashRouter as Router,Route,Switch }from 'react-router-dom'
@@ -12,6 +13,7 @@ ReactDOM.render(
    ( <Provider store={store}>
         <Router>
             <Route path='/register' component={Register}  />
+            <Route path='/scan' component={Scanner}  />
         </Router>
     </Provider>),document.getElementById('root')
 );
