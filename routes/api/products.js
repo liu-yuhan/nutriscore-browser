@@ -98,4 +98,21 @@ router.post('/comments/:id',
   }
 );
 
+router.delete('/comments/delete/:id', auth, async (req, res) => {
+  try{
+  const comment = await Product.findById(req.params.id);
+
+    if(comment.user.toString() !== req.user.id){
+      return res.status(401).json({msg: 'Not authorize to delete this comment'})
+    } 
+    await comment.remove();
+    res.json({msg: 'Comment deleted !'})
+
+  } catch(err){
+    res.status(400).json({err: error})
+  }
+})
+
+
+
 module.exports = router;
