@@ -4,9 +4,9 @@ import { USER_VALID , ERR_MSG} from './action_type'
 
 // synchronize function wait to be called in asyn function register
 const userValid = (user)=>({ type: USER_VALID, data:user })
-const errorMsg = (msg)=>({type:ERR_MSG, data:msg})
+const errorMsg = (err)=>({type:ERR_MSG, data:err})
 
-export const register = (user) => {
+export const register = (user)=>{
    const {name, email, password, password_confirm } = user
    if (!name || !email || !password ||!password_confirm ){
        return errorMsg(" Information required, shouldn't be empty ")
