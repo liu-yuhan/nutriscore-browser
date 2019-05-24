@@ -5,13 +5,15 @@ import Header from "../../Components/header";
 import { connect } from "react-redux";
 import { login } from "../../redux/action";
 import Register from "../Register/register";
+import jwt_decode from "jwt-decode";
 
 class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
       email: "",
-      password: ""
+      password: "",
+      token: ""
     };
   }
 
@@ -30,6 +32,16 @@ class Login extends Component {
     this.props.history.replace("/register");
   };
 
+  componentWillMount() {
+    const getToken = localStorage.getItem("jwToken");
+    if (getToken) {
+      const decodeToken = jwt_decode(getToken);
+      const currentTime = Date.now() / 1000;
+      if (decodeToken.exp >= currentTime) {
+        this.props.history.replace("/home");
+      }
+    }
+  }
   render() {
     console.log(this.props.user);
     const { msg, token } = this.props.user;

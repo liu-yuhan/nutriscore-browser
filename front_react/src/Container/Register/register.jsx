@@ -5,6 +5,7 @@ import Header from "../../Components/header";
 import "../container_style.css";
 import { register } from "../../redux/action";
 import { connect } from "react-redux";
+import jwt_decode from "jwt-decode";
 
 class Register extends Component {
   constructor(props) {
@@ -13,7 +14,8 @@ class Register extends Component {
       name: "",
       email: "",
       password: "",
-      password_confirm: ""
+      password_confirm: "",
+      token: ""
     };
   }
   changeHandler = event => {
@@ -31,13 +33,20 @@ class Register extends Component {
       console.log("guigui");
     }
   };
-
+  componentWillMount() {
+    const getToken = localStorage.getItem("jwToken");
+    if (getToken) {
+      const decodeToken = jwt_decode(getToken);
+      const currentTime = Date.now() / 1000;
+      if (decodeToken.exp >= currentTime) {
+        this.props.history.replace("/home");
+      }
+    }
+  }
   render() {
     console.log(this.props.user);
     const { msg, token } = this.props.user;
-
     if (token) {
-      console.log(token);
       return <Redirect to="/home" />;
     }
 

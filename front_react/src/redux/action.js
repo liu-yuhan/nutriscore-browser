@@ -1,6 +1,7 @@
 import { reqRegister, reqLogin } from "../api_connection/index";
 
 import { USER_VALID, ERR_MSG, USER_LOGIN } from "./action_type";
+import setAuthToken from "../utils/setAuthToken.js";
 
 // synchronize function wait to be called in asyn function register
 const userValid = user => ({ type: USER_VALID, data: user });
@@ -17,18 +18,19 @@ export const register = user => {
   }
   return async dispatch => {
     const response = await reqRegister({ name, email, password });
-    console.log(response);
+    console.log("response : ", response);
     const result = response.data;
-    console.log(result);
-
+    console.log("result1 : ", result);
     if (result.code === 1) {
       //code 0, register success
       //dispacher success action
       // dispatch(userValid(result.data));
       dispatch(errorMsg(result.errors[0].msg));
     } else {
-      //code 1, register failed
-      //dispacher failed action
+      console.log("result2: ", result);
+      const { token } = result;
+      localStorage.setItem("jwToken", token);
+      setAuthToken(token);
       dispatch(userValid(result));
     }
   };

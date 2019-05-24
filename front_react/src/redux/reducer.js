@@ -7,7 +7,7 @@ const initUser = {
   password: "",
   msg: "",
   redirect: "",
-  token: "False"
+  token: ""
 };
 
 function user(state = initUser, action) {
