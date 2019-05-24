@@ -33,13 +33,13 @@ class Register extends Component {
   };
 
   render() {
-    const { msg, token } = this.props.user;
     console.log(this.props.user);
+    const { msg, token } = this.props.user;
 
-    /*  if (token) {
+    if (token) {
       console.log(token);
       return <Redirect to="/home" />;
-    }*/
+    }
 
     return (
       <div>
