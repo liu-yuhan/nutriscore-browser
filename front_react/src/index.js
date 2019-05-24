@@ -2,19 +2,20 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Register from './Container/Register/register';
-import Scanner from './Components/Scanner';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import {HashRouter as Router,Route,Switch }from 'react-router-dom'
 import store from './redux/store'
-import Demo from './Components/Demo';
+import Scan from './Components/Scan';
+import Home from './Container/Home/Home';
 
 
 ReactDOM.render(
    ( <Provider store={store}>
         <Router>
+            <Route path='/' component={Home} />
             <Route path='/register' component={Register} />
-            <Route path='/scan' component={Demo} />
+            <Route path='/scan' component={Scan} />
         </Router>
     </Provider>),document.getElementById('root')
 );

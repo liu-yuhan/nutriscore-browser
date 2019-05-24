@@ -15,7 +15,7 @@ const style = {
   };
 
 
-class Demo extends Component {
+class Scan extends Component {
 
     getScanSettings = () => {
         return new ScanSettings({ enabledSymbologies: ["qr", "ean8", "ean13", "upca", "upce", "code128", "code39", "code93", "itf"] });
@@ -43,4 +43,4 @@ class Demo extends Component {
   }
 }
 
-export default Demo;
+export default Scan;
