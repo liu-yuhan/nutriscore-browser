@@ -13,9 +13,11 @@ import Home from './Container/Home/Home';
 ReactDOM.render(
    ( <Provider store={store}>
         <Router>
-            <Route path='/' component={Home} />
-            <Route path='/register' component={Register} />
-            <Route path='/scan' component={Scan} />
+            <Switch>
+            <Route exact path='/' component={Home} />
+            <Route exact path='/register' component={Register} />
+            <Route exact path='/scan' component={Scan} />
+            </Switch>
         </Router>
     </Provider>),document.getElementById('root')
 );

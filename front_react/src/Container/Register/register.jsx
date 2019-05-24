@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Container , Form, Col, Button } from 'react-bootstrap';
+import { Container, Form, Col, Button } from 'react-bootstrap';
 import { Redirect } from 'react-router-dom';
 import {Row} from 'react-bootstrap'
 import  Header from "../../Components/header";
@@ -10,7 +10,7 @@ import {connect} from 'react-redux'
 
 class Register extends Component{
     constructor(props){
-        super(props)
+        super(props);
         this.state={
             name : '',
             email : '',
