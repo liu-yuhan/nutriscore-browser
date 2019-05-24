@@ -1,60 +1,36 @@
 import React, { Component } from "react";
-import { Form, Col, Button, Row } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 import { Redirect } from "react-router-dom";
 import Header from "../../Components/header";
-import "../container_style.css";
-import { register } from "../../redux/action";
 import { connect } from "react-redux";
+import { login } from "../../redux/action";
 
-class Register extends Component {
+class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
       email: "",
-      password: "",
-      password_confirm: ""
+      password: ""
     };
   }
+
   changeHandler = event => {
     var stateName = event.target.name;
     var newValue = event.target.value;
     this.setState({ [stateName]: newValue });
-    //console.log(this.state);
+    console.log(this.state);
   };
+
   submitHandler = event => {
-    var psw = this.state.password;
-    var psw_cfm = this.state.password_confirm;
-    if (psw === psw_cfm) {
-      this.props.register(this.state);
-    } else {
-      console.log("guigui");
-    }
+    this.props.login(this.state);
   };
 
   render() {
-    const { msg, token } = this.props.user;
-    console.log(this.props.user);
-
-    /*  if (token) {
-      console.log(token);
-      return <Redirect to="/home" />;
-    }*/
-
     return (
       <div>
         <Header />
         <div className="container mx-auto register_form">
-          {msg ? <h1> {msg}</h1> : null}
           <Form className="container my-3 d-block">
-            <Form.Group controlId="form_register_name">
-              <Form.Control
-                name="name"
-                type="text"
-                placeholder="Username : "
-                onChange={this.changeHandler.bind(this)}
-              />
-            </Form.Group>
             <Form.Group controlId="form_register_email">
               <Form.Control
                 name="email"
@@ -71,20 +47,13 @@ class Register extends Component {
                 onChange={this.changeHandler.bind(this)}
               />
             </Form.Group>
-            <Form.Group>
-              <Form.Control
-                name="password_confirm"
-                type="password"
-                placeholder="Password Confirmation :"
-                onChange={this.changeHandler.bind(this)}
-              />
-            </Form.Group>
             <Button
               className="btn-block"
-              onClick={this.submitHandler.bind(this)}
+              onclick={this.submitHandler.bind(this)}
             >
-              REGISTER
+              LOGIN
             </Button>
+            <Button className="btn-block">REGISTER</Button>
           </Form>
         </div>
       </div>
@@ -94,5 +63,5 @@ class Register extends Component {
 
 export default connect(
   state => ({ user: state.user }),
-  { register }
-)(Register);
+  { login }
+)(Login);
