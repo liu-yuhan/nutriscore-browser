@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { render } from "react-dom";
-import { ScanSettings, Barcode } from "scandit-sdk";
+import { ScanSettings} from "scandit-sdk";
 import ScanditBarcodeScanner from "scandit-sdk-react";
 
 const style = {
@@ -17,10 +16,18 @@ const style = {
 
 class Demo extends Component {
 
+    constructor(props){
+      super(props);
+      this.scanReussi=this.scanReussi.bind(this);
+    }
+
     getScanSettings = () => {
         return new ScanSettings({ enabledSymbologies: ["qr", "ean8", "ean13", "upca", "upce", "code128", "code39", "code93", "itf"] });
     };
 
+    scanReussi(result){
+      this.props.history.push('/result/'+result.barcodes[0].data)
+    }
     
   render() {
     return (
@@ -31,7 +38,7 @@ class Demo extends Component {
           engineLocation="https://unpkg.com/scandit-sdk@^3.1.0/build"
         
           onReady={() => this.setState({ scannerReady: true })}
-          onScan={console.log}
+          onScan={this.scanReussi}
           onScanError={console.log}
         
           scanSettings={this.getScanSettings()}
