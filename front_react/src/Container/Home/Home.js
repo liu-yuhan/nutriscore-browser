@@ -9,7 +9,7 @@ export default class Home extends Component {
         this.routeChange = this.routeChange.bind(this);
     }
     routeChange() {
-        let path = '/register';
+        let path = '/login';
         this.props.history.push(path);
     }
 
