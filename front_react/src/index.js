@@ -7,9 +7,9 @@ import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 import store from './redux/store'
-import Scan from './Components/Scan';
 import Home from './Container/Home/Home';
-
+import Result from './Components/Result'
+import Demo from './Components/Demo';
 
 ReactDOM.render(
     (<Provider store={store}>
@@ -20,6 +20,7 @@ ReactDOM.render(
             <Route exact path='/register' component={Register} />
             <Route exact path='/scan' component={Scan} />
             </Switch>
+            <Route path='/result/:id' component={Result} />
         </Router>
     </Provider>), document.getElementById('root')
 );
@@ -31,3 +32,4 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 //serviceWorker.unregister();
+serviceWorker.unregister();
