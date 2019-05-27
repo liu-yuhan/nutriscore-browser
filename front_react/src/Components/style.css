@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'Blanch Caps Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../Container/fonts/blanch_caps-webfont.woff') format('woff'),
+    url("../Container/fonts/blanch_caps-webfont.ttf") format("ttf");
+}
+
+.header{
+    color: aliceblue;
+    background-color : #605ca8;
+    height: 150px;
+    padding-top: 40px;
+}
+
+.logo {
+    font-family: "Blanch Caps Regular";
+    font-size: 4rem;
+}
+
