@@ -9,7 +9,7 @@ import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 import store from './redux/store'
 import Home from './Container/Home/Home';
 import Result from './Components/Result'
-import Demo from './Components/Demo';
+import Scan from './Components/Scan';
 
 ReactDOM.render(
     (<Provider store={store}>
