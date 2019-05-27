@@ -1,10 +1,15 @@
+import React, {Component} from 'react';
 import "./style.css"
-import React from "react"
+
     
- var Header =function(){
+class Header extends Component {
+
+render() {
     return(
-    <div className='header mx-auto py-auto' >
-         <h1 className='logo text-center ' > UNCOVER </h1>
-    </div>)
+        <div className='header mx-auto py-auto' >
+            <h1 className='logo text-center' > UNCOVER </h1>
+        </div>)
+}
+
 }
 export default Header
