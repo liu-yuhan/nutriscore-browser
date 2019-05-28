@@ -29,7 +29,8 @@ class Scan extends Component {
     };
 
     scanReussi(result){
-      Axios.post('http://localhost:5000/api/product/'+result.barcodes[0].data)
+      const token = localStorage.getItem('jwToken')
+      Axios.post('http://localhost:5000/api/product/'+result.barcodes[0].data, null, {headers: {"x-auth-token": token}})
       
       this.props.history.push('/result/'+result.barcodes[0].data)
      
