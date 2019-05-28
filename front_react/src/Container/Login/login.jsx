@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Form, Button } from "react-bootstrap";
 import { Redirect } from "react-router-dom";
 import Header from "../../Components/header";
+import Footer from "../../Components/tabBar";
 import { connect } from "react-redux";
 import { login } from "../../redux/action";
 import Register from "../Register/register";
@@ -38,7 +39,7 @@ class Login extends Component {
       const decodeToken = jwt_decode(getToken);
       const currentTime = Date.now() / 1000;
       if (decodeToken.exp >= currentTime) {
-        this.props.history.replace("/home");
+        this.props.history.replace("/");
       }
     }
   }
@@ -47,7 +48,7 @@ class Login extends Component {
     const { msg, token } = this.props.user;
     if (token) {
       console.log(token);
-      return <Redirect to="/home" />;
+      return <Redirect to="/" />;
     }
     return (
       <div>
@@ -82,6 +83,7 @@ class Login extends Component {
             </Button>
           </Form>
         </div>
+        <Footer />
       </div>
     );
   }
