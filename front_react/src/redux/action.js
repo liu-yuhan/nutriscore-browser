@@ -1,12 +1,13 @@
 import { reqRegister, reqLogin } from "../api_connection/index";
 
-import { USER_VALID, ERR_MSG, USER_LOGIN } from "./action_type";
+import { USER_VALID, ERR_MSG, USER_LOGIN, USER_PROFILE } from "./action_type";
 import setAuthToken from "../utils/setAuthToken.js";
 
 // synchronize function wait to be called in asyn function register
 const userValid = user => ({ type: USER_VALID, data: user });
 const errorMsg = err => ({ type: ERR_MSG, data: err });
 const userLogin = user => ({ type: USER_LOGIN, data: user });
+export const userProfile = user => ({ type: USER_PROFILE, data: user });
 
 export const register = user => {
   const { name, email, password, password_confirm } = user;
