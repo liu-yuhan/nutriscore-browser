@@ -50,7 +50,7 @@ router.put('/downvote/:id', auth, async (req, res) => {
   }
 });
 
-router.post('/:id', auth, async (req, res) => {
+router.post('/:id', auth,  async (req, res) => {
   try {
     const newProduct = new Product({
       barcode: req.params.id,
@@ -63,6 +63,7 @@ router.post('/:id', auth, async (req, res) => {
     console.error(error.message);
     res.status(500).send('Server Error');
   }
+
 })
 
 router.post('/comments/:id',
