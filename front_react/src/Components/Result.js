@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Axios from "axios";
+import Navbar from "../Components/navbar";
 
 class Result extends Component {
   constructor(props) {
@@ -27,38 +28,61 @@ class Result extends Component {
 
   render() {
     return (
-      <div>
-        {!this.state.resultScan ? (
-          <div>Chargement des données en cours</div>
-        ) : !this.state.resultScan.product.product_name ? (
-          <div className="jumbotron mx-auto mt-2">
-            <p>Produit non trouvé</p>
+      <>
+        <Navbar />
+        <div
+          className="card mb-2 mx-auto py-auto"
+          style={{
+            marginTop: 100,
+            marginLeft: 100,
+            height: "mx-auto py-auto",
+            width: 400
+          }}
+        >
+          <div className="row no-gutters">
+            <div className="col-md-4">
+              {this.state.resultScan ? (
+                <img
+                  src={this.state.resultScan.product.image_front_url}
+                  className="card-img img-fluid mx-auto py-auto"
+                  alt="..."
+                />
+              ) : null}
+            </div>
+            <div className="">
+              <div className="card-body">
+                {!this.state.resultScan ? (
+                  <div>Chargement des données en cours</div>
+                ) : !this.state.resultScan.product.product_name ? (
+                  <div className="">
+                    <p>Produit non trouvé</p>
+                  </div>
+                ) : (
+                  <>
+                    <h5 className="card-title">
+                      {this.state.resultScan.product.product_name}
+                    </h5>
+                    <p className="card-text">
+                      {this.state.resultScan.product.origins === ""
+                        ? "Non définie"
+                        : this.state.resultScan.product.origins}
+                    </p>
+                    <p className="card-text">
+                      {this.state.resultScan.product
+                        .ingredients_from_palm_oil_n === "1"
+                        ? "Oui"
+                        : "Non"}
+                    </p>
+                    <p className="">
+                      Packaging : {this.state.resultScan.product.packaging}
+                    </p>
+                  </>
+                )}
+              </div>
+            </div>
           </div>
-        ) : (
-          <div className="jumbotron mx-auto mt-2">
-            Hello, you're on page {this.props.match.params.id}
-            <br />
-            Le produit est du : {this.state.resultScan.product.product_name}
-            <br />
-            Origine :{" "}
-            {this.state.resultScan.product.origins == ""
-              ? "Non définie"
-              : this.state.resultScan.product.origins}
-            <br />
-            <img
-              className="text-right"
-              src={this.state.resultScan.product.image_front_url}
-            />
-            <br />
-            Huile de Palme :{" "}
-            {this.state.resultScan.product.ingredients_from_palm_oil_n == "1"
-              ? "Oui"
-              : "Non"}
-            <br />
-            Packaging : {this.state.resultScan.product.packaging}
-          </div>
-        )}
-      </div>
+        </div>
+      </>
     );
   }
 }
