@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import { Button, Card, ButtonGroup } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 // import { Redirect } from "react-router-dom";
 import Header from "../../Components/header";
 import "../container_style.css";
 import { connect } from "react-redux";
-import store from '../../redux/store'
 import { userProfile } from "../../redux/action";
-// import jwt_decode from "jwt-decode";
+import jwt_decode from "jwt-decode";
 
 
 
@@ -21,8 +20,17 @@ class Profile extends Component {
     }
 
     componentDidMount() {
+        let token = this.props.user.token;
+        if (!token){
+            this.props.history.replace("/login")
+        }
+        else {
+            // const decodeToken = jwt_decode(token);
+            console.log(token);
+        }
 
-        console.log('Token : ',this.props.user.token);
+
+
 
     }
 
