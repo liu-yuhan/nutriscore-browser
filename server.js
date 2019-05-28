@@ -1,12 +1,15 @@
 const express = require('express');
 const app = express();
 const connectDB = require('./config/db');
+const cors = require('cors')
 
 const PORT = process.env.PORT || 5000;
 
 connectDB();
 
 app.use(express.json({ extended: false }));
+app.use(cors())
+
 
 app.get('/', (req, res) => {
   res.send('Server OK');

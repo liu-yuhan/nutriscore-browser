@@ -47,10 +47,17 @@ export const login = user => {
     const response = await reqLogin({ email, password });
     const result = response.data;
     console.log(result);
-    if (result.code === 0) {
-      dispatch(userLogin(result));
-    } else {
+    if (result.code === 1) {
+      //code 0, register success
+      //dispacher success action
+      // dispatch(userValid(result.data));
       dispatch(errorMsg(result.errors[0].msg));
+    } else {
+      console.log("result: ", result);
+      const { token } = result;
+      localStorage.setItem("jwToken", token);
+      setAuthToken(token);
+      dispatch(userValid(result));
     }
   };
 };
