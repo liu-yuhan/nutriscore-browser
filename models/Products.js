@@ -1,16 +1,17 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const ProductSchema = new Schema({
-
   barcode: {
-    type: String,
-    unique: true
+    type: String
   },
-  user : {
-    type : Schema.Types.ObjectId,
-    ref: 'users'
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: "users"
+  },
+  date: {
+    type: Date
   }
 });
 
-module.exports = Products = mongoose.model('product', ProductSchema);
+module.exports = Products = mongoose.model("product", ProductSchema);
