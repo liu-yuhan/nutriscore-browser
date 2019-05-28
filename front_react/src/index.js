@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Register from "./Container/Register/register";
 import Login from "./Container/Login/login";
 import Logout from "./Container/Logout/logout";
+import Profile from "./Container/Profile/Profile";
 import * as serviceWorker from "./serviceWorker";
 import { Provider } from "react-redux";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
@@ -29,6 +30,7 @@ ReactDOM.render(
         <Route exact path="/register" component={Register} />
         <Route exact path="/scan" component={Scan} />
         <Route exact path="/result/:id" component={Result} />
+        <Route exact path="/profile" component={Profile} />
       </Switch>
     </Router>
   </Provider>,
