@@ -12,9 +12,13 @@ import Home from "./Container/Home/Home";
 import Result from "./Components/Result";
 import Scan from "./Components/Scan";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStroopwafel } from "@fortawesome/free-solid-svg-icons";
-library.add(faStroopwafel);
+import {
+  faStroopwafel,
+  faCoffee,
+  faCamera,
+  faBarcode
+} from "@fortawesome/free-solid-svg-icons";
+library.add(faCamera, faCoffee, faCamera, faBarcode, faStroopwafel);
 ReactDOM.render(
   <Provider store={store}>
     <Router>

@@ -1,20 +1,29 @@
 @font-face {
-    font-family: 'Blanch Caps Regular';
-    font-style: normal;
-    font-weight: normal;
-    src: url('../Container/fonts/blanch_caps-webfont.woff') format('woff'),
+  font-family: "Blanch Caps Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../Container/fonts/blanch_caps-webfont.woff") format("woff"),
     url("../Container/fonts/blanch_caps-webfont.ttf") format("ttf");
 }
 
-.header{
-    color: aliceblue;
-    background-color : #605ca8;
-    height: 150px;
-    padding-top: 40px;
+.header {
+  color: aliceblue;
+  background-color: #605ca8;
+  height: 150px;
+  padding-top: 40px;
 }
 
 .logo {
-    font-family: "Blanch Caps Regular";
-    font-size: 4rem;
+  font-family: "Blanch Caps Regular";
+  font-size: 4rem;
 }
 
+.navbar {
+  background-color: #07a995;
+  height: 8%;
+}
+
+.icon {
+  color: white;
+  font-size: 24px;
+}
