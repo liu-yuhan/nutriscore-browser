@@ -4,7 +4,7 @@ import { Button, Card } from "react-bootstrap";
 import Header from "../../Components/header";
 import "../container_style.css";
 import { connect } from "react-redux";
-import { userProfile } from "../../redux/action";
+import { profile } from "../../redux/action";
 import jwt_decode from "jwt-decode";
 
 
@@ -12,31 +12,36 @@ import jwt_decode from "jwt-decode";
 class Profile extends Component {
     constructor(props) {
         super(props);
-        console.log(props);
 
         this.state = {
-            token: '',
+            id: '',
+            name: '',
+            email: '',
+            date:'',
         }
     }
 
     componentDidMount() {
-        let token = this.props.user.token;
-        if (!token){
-            this.props.history.replace("/login")
+        const getToken = localStorage.getItem("jwToken");
+
+        if (!getToken){
+            this.props.history.push("/login")
         }
         else {
-            // const decodeToken = jwt_decode(token);
-            console.log(token);
+            const decodeToken = jwt_decode(getToken);
+            this.setState({
+                id: decodeToken.user.id,
+            });
+            console.log(decodeToken.user.id);
+            console.log('State.id : ',this.state.id);
+            this.props.profile(this.state);
+            console.log(this.state);
         }
-
-
-
 
     }
 
 
     render() {
-
         return(
             <div>
                 <Header/>
@@ -51,19 +56,15 @@ class Profile extends Component {
                             <Button variant="primary mx-3">Edit</Button>
                             <Button variant="danger mx-3">Delete</Button>
                         </div>
-
                     </Card.Body>
                 </Card>
-
-
             </div>
-
         )
     }
 
 }
 
 export default connect(
-    state => ({ user: state.user }),
-    { userProfile }
+    state => ({ user: state.id }),
+    { profile }
 )(Profile);

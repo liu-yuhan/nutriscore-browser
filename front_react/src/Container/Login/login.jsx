@@ -37,7 +37,7 @@ class Login extends Component {
       const decodeToken = jwt_decode(getToken);
       const currentTime = Date.now() / 1000;
       if (decodeToken.exp >= currentTime) {
-        this.props.history.replace("/");
+        this.props.history.replace("/profile");
       }
     }
   }

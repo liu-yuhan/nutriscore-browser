@@ -1,4 +1,4 @@
-import { reqRegister, reqLogin } from "../api_connection/index";
+import { reqRegister, reqLogin, reqProfile } from "../api_connection/index";
 
 import { USER_VALID, ERR_MSG, USER_LOGIN, USER_PROFILE } from "./action_type";
 import setAuthToken from "../utils/setAuthToken.js";
@@ -7,7 +7,7 @@ import setAuthToken from "../utils/setAuthToken.js";
 const userValid = user => ({ type: USER_VALID, data: user });
 const errorMsg = err => ({ type: ERR_MSG, data: err });
 const userLogin = user => ({ type: USER_LOGIN, data: user });
-export const userProfile = user => ({ type: USER_PROFILE, data: user });
+const userProfile = user => ({ type: USER_PROFILE, data: user });
 
 export const register = user => {
   const { name, email, password, password_confirm } = user;
@@ -59,5 +59,16 @@ export const login = user => {
       setAuthToken(token);
       dispatch(userValid(result));
     }
+  };
+};
+
+export const profile = user => {
+  const { id } = user;
+
+  return async dispatch => {
+    const response = await reqProfile({ id });
+    const result = response.data;
+    console.log('Profile', result);
+    dispatch(userValid(result))
   };
 };
