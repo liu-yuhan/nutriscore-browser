@@ -18,7 +18,7 @@ import {
   faCamera,
   faBarcode
 } from "@fortawesome/free-solid-svg-icons";
-library.add(faCamera, faCoffee, faCamera, faBarcode, faStroopwafel);
+library.add(faCamera, faCoffee, faBarcode, faStroopwafel);
 ReactDOM.render(
   <Provider store={store}>
     <Router>
