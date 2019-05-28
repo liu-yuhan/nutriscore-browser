@@ -53,7 +53,8 @@ router.put('/downvote/:id', auth, async (req, res) => {
 router.post('/:id', auth, async (req, res) => {
   try {
     const newProduct = new Product({
-      barcode: req.body.barcode
+      barcode: req.params.id,
+      user: req.user.id
     });
     const product = await newProduct.save();
 

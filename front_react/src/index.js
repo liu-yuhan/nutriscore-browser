@@ -19,8 +19,9 @@ ReactDOM.render(
             <Route exact path='/login' component={Login} />
             <Route exact path='/register' component={Register} />
             <Route exact path='/scan' component={Scan} />
+            <Route exact path='/result/:id' component={Result} />
             </Switch>
-            <Route path='/result/:id' component={Result} />
+
         </Router>
     </Provider>), document.getElementById('root')
 );
