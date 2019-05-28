@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Axios from "axios";
 
+
 class Result extends Component {
   constructor(props) {
     super(props);
@@ -10,6 +11,7 @@ class Result extends Component {
   }
 
   componentDidMount() {
+    const Token=localStorage.getItem("jwToken")
     Axios.get(
       "https://fr.openfoodfacts.org/api/V0/produit/" +
         this.props.match.params.id +
@@ -41,21 +43,23 @@ class Result extends Component {
             Le produit est du : {this.state.resultScan.product.product_name}
             <br />
             Origine :{" "}
-            {this.state.resultScan.product.origins == ""
+            {this.state.resultScan.product.origins === ""
               ? "Non définie"
               : this.state.resultScan.product.origins}
             <br />
             <img
+              alt='Produit'
               className="text-right"
               src={this.state.resultScan.product.image_front_url}
             />
             <br />
             Huile de Palme :{" "}
-            {this.state.resultScan.product.ingredients_from_palm_oil_n == "1"
+            {this.state.resultScan.product.ingredients_from_palm_oil_n === "1"
               ? "Oui"
               : "Non"}
             <br />
             Packaging : {this.state.resultScan.product.packaging}
+           
           </div>
         )}
       </div>
