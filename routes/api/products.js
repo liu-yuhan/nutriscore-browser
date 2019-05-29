@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Product = require("../../models/Products");
+const User = require("../../models/Users");
 const auth = require("../middleware/auth");
 
 router.post("/:id", auth, (req, res) => {
@@ -34,6 +35,18 @@ router.post("/:id", auth, (req, res) => {
       console.log(req.user.id);
     })
     .catch(error => console.log("carrotte", error));
+});
+
+router.get("/:user_id", auth, async (req, res) => {
+  try {
+    const user_id = await User.findById(req.params.user_id);
+    const user_products = await Product.find({ user: user_id });
+    if (user_products) {
+      res.json(user_products);
+    }
+  } catch (error) {
+    res.status(500).json({ msg: "nique ta mère" });
+  }
 });
 
 module.exports = router;
