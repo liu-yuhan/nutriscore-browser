@@ -10,6 +10,8 @@ import store from './redux/store'
 import Home from './Container/Home/Home';
 import Result from './Components/Result'
 import Scan from './Components/Scan';
+import Profile from './Container/Profile/Profile';
+
 
 ReactDOM.render(
     (<Provider store={store}>
@@ -20,6 +22,7 @@ ReactDOM.render(
             <Route exact path='/register' component={Register} />
             <Route exact path='/scan' component={Scan} />
             <Route exact path='/result/:id' component={Result} />
+            <Route exact path='/profile' component={Profile} />
             </Switch>
 
         </Router>

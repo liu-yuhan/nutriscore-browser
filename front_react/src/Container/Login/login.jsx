@@ -4,7 +4,6 @@ import { Redirect } from "react-router-dom";
 import Header from "../../Components/header";
 import { connect } from "react-redux";
 import { login } from "../../redux/action";
-import Register from "../Register/register";
 import jwt_decode from "jwt-decode";
 
 class Login extends Component {
@@ -18,10 +17,10 @@ class Login extends Component {
   }
 
   changeHandler = event => {
-    var stateName = event.target.name;
-    var newValue = event.target.value;
+    let stateName = event.target.name;
+    let newValue = event.target.value;
     this.setState({ [stateName]: newValue });
-    console.log(this.state);
+    // console.log(this.state);
   };
 
   submitHandler = event => {
@@ -38,16 +37,16 @@ class Login extends Component {
       const decodeToken = jwt_decode(getToken);
       const currentTime = Date.now() / 1000;
       if (decodeToken.exp >= currentTime) {
-        this.props.history.replace("/home");
+        this.props.history.replace("/profile");
       }
     }
   }
   render() {
-    console.log(this.props.user);
+    // console.log(this.props.user);
     const { msg, token } = this.props.user;
     if (token) {
-      console.log(token);
-      return <Redirect to="/home" />;
+      // console.log(token);
+      return <Redirect to="/profile" />;
     }
     return (
       <div>

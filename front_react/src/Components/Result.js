@@ -12,7 +12,7 @@ class Result extends Component {
   }
 
   componentDidMount() {
-    const getToken = localStorage.getItem('jwToken')
+    // const Token=localStorage.getItem("jwToken")
     Axios.get(
       "https://fr.openfoodfacts.org/api/V0/produit/" +
         this.props.match.params.id +
