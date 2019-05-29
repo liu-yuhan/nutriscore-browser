@@ -6,6 +6,9 @@ import "../container_style.css";
 import { connect } from "react-redux";
 import { profile } from "../../redux/action";
 import jwt_decode from "jwt-decode";
+import axios from "axios";
+import moment from 'moment';
+
 
 
 
@@ -18,6 +21,7 @@ class Profile extends Component {
             name: '',
             email: '',
             date:'',
+
         }
     }
 
@@ -29,15 +33,27 @@ class Profile extends Component {
         }
         else {
             const decodeToken = jwt_decode(getToken);
-            this.setState({
-                id: decodeToken.user.id,
-            });
-            console.log(decodeToken.user.id);
-            console.log('State.id : ',this.state.id);
-            this.props.profile(this.state);
-            console.log(this.state);
-        }
+            this.setState({id: decodeToken.user.id});
+            axios.get(
+                "http://localhost:5000/api/profile",
+                {
+                    headers : {
+                    'Content-Type': 'application/json',
+                    'x-auth-token' : getToken
+                    }})
+                .then(response => {
+                    // console.log(response);
+                    this.setState({
+                        name : response.data.name,
+                        email: response.data.email,
+                        date: response.data.date
+                    })
+                })
+                .catch((error) => {
+                    console.log(error);
+                })
 
+        }
     }
 
 
@@ -49,9 +65,9 @@ class Profile extends Component {
                     <Card.Img variant="top" src="https://picsum.photos/300" />
                     <Card.Header>User's Profile</Card.Header>
                     <Card.Body>
-                        <Card.Title>Username</Card.Title>
-                        <Card.Text>Email</Card.Text>
-                        <Card.Text>Created at : </Card.Text>
+                        <Card.Title>Username : {this.state.name}</Card.Title>
+                        <Card.Text>Email : {this.state.email}</Card.Text>
+                        <Card.Text>Created at : {moment(this.state.date).format("MMMM Do YYYY")}</Card.Text>
                         <div className="d-flex justify-content-center mt-5">
                             <Button variant="primary mx-3">Edit</Button>
                             <Button variant="danger mx-3">Delete</Button>
@@ -65,6 +81,6 @@ class Profile extends Component {
 }
 
 export default connect(
-    state => ({ user: state.id }),
+    state => ({ user: state.user }),
     { profile }
 )(Profile);

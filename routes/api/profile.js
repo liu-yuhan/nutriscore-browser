@@ -1,11 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const jwt = require("jsonwebtoken");
 const auth = require("../../routes/middleware/auth");
 const User = require("../../models/Users");
-const bcrypt = require("bcryptjs");
-const { check, validationResult } = require("express-validator/check");
-const config = require("config");
+
 
 //@route  GET api/profile
 //@desc   Profile Route

@@ -17,8 +17,8 @@ class Login extends Component {
   }
 
   changeHandler = event => {
-    var stateName = event.target.name;
-    var newValue = event.target.value;
+    let stateName = event.target.name;
+    let newValue = event.target.value;
     this.setState({ [stateName]: newValue });
     // console.log(this.state);
   };
