@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Axios from "axios";
 import { login } from "../redux/action";
 
-
 class Result extends Component {
   constructor(props) {
     super(props);
@@ -12,7 +11,7 @@ class Result extends Component {
   }
 
   componentDidMount() {
-    // const Token=localStorage.getItem("jwToken")
+    const getToken = localStorage.getItem("jwToken");
     Axios.get(
       "https://fr.openfoodfacts.org/api/V0/produit/" +
         this.props.match.params.id +
@@ -49,7 +48,7 @@ class Result extends Component {
               : this.state.resultScan.product.origins}
             <br />
             <img
-              alt='Produit'
+              alt="Produit"
               className="text-right"
               src={this.state.resultScan.product.image_front_url}
             />
@@ -60,7 +59,6 @@ class Result extends Component {
               : "Non"}
             <br />
             Packaging : {this.state.resultScan.product.packaging}
-           
           </div>
         )}
       </div>

@@ -11,6 +11,7 @@ import Home from './Container/Home/Home';
 import Result from './Components/Result'
 import Scan from './Components/Scan';
 import Profile from './Container/Profile/Profile';
+import History from './Components/History'
 
 
 ReactDOM.render(
@@ -23,6 +24,7 @@ ReactDOM.render(
             <Route exact path='/scan' component={Scan} />
             <Route exact path='/result/:id' component={Result} />
             <Route exact path='/profile' component={Profile} />
+            <Route exact path='/history' component={History} />
             </Switch>
 
         </Router>
