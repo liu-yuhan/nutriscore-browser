@@ -12,7 +12,7 @@ const CHILD_BUTTON_DIAM = 40;
 // The number of child buttons that fly out from the main button
 const NUM_CHILDREN = 3;
 // Hard code the position values of the mainButton
-const M_X = 370;
+const M_X = 350;
 const M_Y = 360;
 
 //should be between 0 and 0.5 (its maximum value is difference between scale in finalChildButtonStyles a
@@ -50,6 +50,7 @@ function finalChildDeltaPositions(index) {
 class MenuProfile extends React.Component {
     constructor(props) {
         super(props);
+        console.log(props);
 
         this.state = {
             isOpen: false,
@@ -59,6 +60,16 @@ class MenuProfile extends React.Component {
         // Bind this to the functions
         this.toggleMenu = this.toggleMenu.bind(this);
         this.closeMenu = this.closeMenu.bind(this);
+        this.actionMenu = this.actionMenu.bind(this);
+
+        this.arrayFunctions = [
+            MenuProfile.deletefunction = MenuProfile.deletefunction.bind(this),
+            MenuProfile.editfunction = MenuProfile.editfunction.bind(this),
+            MenuProfile.scanfunction = MenuProfile.scanfunction.bind(this),
+        ]
+
+
+
     }
 
     componentDidMount() {
@@ -139,6 +150,23 @@ class MenuProfile extends React.Component {
         this.setState({ isOpen: false });
     }
 
+    actionMenu(index) {
+        return this.arrayFunctions[index]();
+    }
+
+    static deletefunction() {
+        return alert('Button 0');
+    }
+
+    static editfunction() {
+        return this.props.props.history.push('/profile/edit');
+    }
+
+    static scanfunction() {
+        return this.props.props.history.push('/scan');
+    }
+
+
     renderChildButtons() {
         const { isOpen } = this.state;
         const targetButtonStylesInitObject = range(NUM_CHILDREN).map(i => {
@@ -206,6 +234,7 @@ class MenuProfile extends React.Component {
         // and this button starts to animate to its default state.
         // BUTTON NO 1    -----------------------------o-|---------------------------------------------
         // BUTTON NO 2    -------------------------------|------------------------------------O--------
+
         let calculateStylesForNextFrame = prevFrameStyles => {
             prevFrameStyles = isOpen ? prevFrameStyles : prevFrameStyles.reverse();
 
@@ -235,11 +264,12 @@ class MenuProfile extends React.Component {
                 defaultStyles={targetButtonStylesInit}
                 styles={calculateStylesForNextFrame}>
                 {interpolatedStyles =>
-                    <div className="menu-profile">
+                    <div>
                         {interpolatedStyles.map(({height, left, rotate, scale, top, width}, index) =>
                             <div
                                 className="child-button"
                                 key={index}
+                                onClick={() => this.actionMenu(index)}
                                 style={{
                                     left,
                                     height,
@@ -262,7 +292,7 @@ class MenuProfile extends React.Component {
         let mainButtonRotation =
             isOpen ? { rotate: spring(0, { stiffness: 500, damping: 30 }) } : { rotate: spring(-135, { stiffness: 500, damping: 30 }) };
         return (
-            <div className="menu-profile">
+            <div>
                 {this.renderChildButtons()}
                 <Motion style={mainButtonRotation}>
                     {({rotate}) =>

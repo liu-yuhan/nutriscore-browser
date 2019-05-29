@@ -20,7 +20,6 @@ class Profile extends Component {
             name: '',
             email: '',
             date:'',
-
         }
     }
 
@@ -61,7 +60,7 @@ class Profile extends Component {
             <div>
                 <Header/>
                 <Card border="light">
-                    <MenuProfile/>
+                    <MenuProfile props={this.props}/>
                     <Card.Img variant="top" src="https://picsum.photos/300" />
                     <Card.Header>User's Profile
 
