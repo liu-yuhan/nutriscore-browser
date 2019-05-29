@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Axios from "axios";
 import { login } from "../redux/action";
 import Navbar from "../Components/navbar";
+import Donut from "../Components/donut";
 
 class Result extends Component {
   constructor(props) {
@@ -20,7 +21,6 @@ class Result extends Component {
     )
       .then(result => {
         this.setState({ resultScan: result.data });
-
         console.log(this.state.resultScan.product.product_name);
       })
       .catch(err => {
@@ -52,12 +52,6 @@ class Result extends Component {
                 </div>
               ) : (
                 <>
-                  <div className="donut-center">
-                    <svg viewBox="0 0 32 32">
-                      <circle r="16" cx="16" cy="16" />
-                    </svg>
-                    <div className="donut-chart" />
-                  </div>
                   <div className="genericName">
                     <h5>
                       {this.state.resultScan.product.generic_name},
@@ -92,6 +86,7 @@ class Result extends Component {
             </div>
           </div>
         </div>
+        <Donut id={this.props.match.barcodes} />
       </>
     );
   }
