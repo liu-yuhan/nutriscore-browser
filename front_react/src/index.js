@@ -9,7 +9,7 @@ import * as serviceWorker from "./serviceWorker";
 import { Provider } from "react-redux";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import store from "./redux/store";
-import Home from "./Container/Home/Home";
+import Cover from "./Container/Cover/cover";
 import Result from "./Components/Result";
 import Scan from "./Components/Scan";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -24,7 +24,7 @@ ReactDOM.render(
   <Provider store={store}>
     <Router>
       <Switch>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/" component={Cover} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/logout" component={Logout} />
         <Route exact path="/register" component={Register} />

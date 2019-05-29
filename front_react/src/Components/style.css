@@ -1,24 +1,10 @@
-@font-face {
-  font-family: "Blanch Caps Regular";
-  font-style: normal;
-  font-weight: normal;
-  src: url("../Container/fonts/blanch_caps-webfont.woff") format("woff"),
-    url("../Container/fonts/blanch_caps-webfont.ttf") format("ttf");
-}
-
-.header {
-  color: aliceblue;
-  background-color: #605ca8;
-  height: 150px;
-  padding-top: 40px;
-}
-
+/* For NavBar*/
 .logo {
   font-family: "Blanch Caps Regular";
   font-size: 4rem;
 }
 
-.navbar {
+.headNav {
   color: aliceblue;
   background-color: #07a995;
   height: 70px;
@@ -61,7 +47,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .navbar {
+  .headNav {
     color: aliceblue;
     background-color: #07a995;
     height: 50px;
@@ -96,4 +82,35 @@
 }
 .genericName {
   margin-top: 70%;
+}
+
+/* for TabBar */
+.footer {
+  height: 8%;
+  background-color: #07a995;
+}
+
+.icon_footer {
+  color: aliceblue;
+  font-size: 24px;
+}
+
+/* for Cover Page */
+#cover_logo {
+  width: 30%;
+  margin-top: 50%;
+  margin-left: 35%;
+}
+
+#cover_image {
+  /* height: 619px;*/
+  display: block;
+}
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans");
+@import url("https://fonts.googleapis.com/css?family=Chenla&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lobster&display=swap");
+#cover_title {
+  color: aliceblue;
+  font-family: "Lobster", cursive;
+  margin-top: 28%;
 }
