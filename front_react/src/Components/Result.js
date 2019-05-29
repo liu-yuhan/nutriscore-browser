@@ -31,55 +31,54 @@ class Result extends Component {
     return (
       <>
         <Navbar />
-        <div
-          className="card mb-2 mx-auto py-auto"
-          style={{
-            marginTop: 100,
-            marginLeft: 100,
-            height: "mx-auto py-auto",
-            width: 400
-          }}
-        >
-          <div className="row no-gutters">
-            <div className="col-md-4">
-              {this.state.resultScan ? (
-                <img
-                  src={this.state.resultScan.product.image_front_url}
-                  className="card-img img-fluid mx-auto py-auto"
-                  alt="..."
-                />
-              ) : null}
-            </div>
-            <div className="">
-              <div className="card-body">
-                {!this.state.resultScan ? (
-                  <div>Chargement des données en cours</div>
-                ) : !this.state.resultScan.product.product_name ? (
-                  <div className="">
-                    <p>Produit non trouvé</p>
-                  </div>
-                ) : (
-                  <>
-                    <h5 className="card-title">
-                      {this.state.resultScan.product.product_name}
+        <div className="row no-gutters card1">
+          <div className="col-md-4">
+            {this.state.resultScan ? (
+              <img
+                src={this.state.resultScan.product.image_front_url}
+                className="card-img img-responsive img2"
+                alt="..."
+              />
+            ) : null}
+          </div>
+          <div className="">
+            <div className="card-body">
+              {!this.state.resultScan ? (
+                <div>Chargement des données en cours</div>
+              ) : !this.state.resultScan.product.product_name ? (
+                <div>
+                  <p>Produit non trouvé</p>
+                </div>
+              ) : (
+                <>
+                  <div className="genericName">
+                    <h5>
+                      {this.state.resultScan.product.generic_name},
+                      <br />
+                      <small>
+                        {this.state.resultScan.product.product_name}
+                      </small>
                     </h5>
-                    <p className="card-text">
-                      {this.state.resultScan.product.origins === ""
-                        ? "Non définie"
-                        : this.state.resultScan.product.origins}
-                    </p>
-                    <p className="card-text">
-                      {this.state.resultScan.product
-                        .ingredients_from_palm_oil_n === "1"
-                        ? "Oui"
-                        : "Non"}
-                    </p>
-                    <p className="">
-                      Packaging : {this.state.resultScan.product.packaging}
-                    </p>
-                  </>
-                )}
-              </div>
+                  </div>
+                  <p className="card-text">
+                    Product origin :
+                    {this.state.resultScan.product.origins === ""
+                      ? "Non définie"
+                      : this.state.resultScan.product.origins}
+                  </p>
+                  <p className="card-text">
+                    {" "}
+                    Oil palm :
+                    {this.state.resultScan.product
+                      .ingredients_from_palm_oil_n === "1"
+                      ? "Oui"
+                      : "Non"}
+                  </p>
+                  <p className="">
+                    Packaging : {this.state.resultScan.product.packaging}
+                  </p>
+                </>
+              )}
             </div>
           </div>
         </div>
