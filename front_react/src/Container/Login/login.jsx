@@ -6,6 +6,7 @@ import Footer from "../../Components/tabBar";
 import { connect } from "react-redux";
 import { login } from "../../redux/action";
 import jwt_decode from "jwt-decode";
+import "../container_style.css";
 
 class Login extends Component {
   constructor(props) {
@@ -33,6 +34,7 @@ class Login extends Component {
   };
 
   componentWillMount() {
+    document.body.style.background = "#ffffff";
     const getToken = localStorage.getItem("jwToken");
     if (getToken) {
       const decodeToken = jwt_decode(getToken);

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button } from "react-bootstrap";
 import Cover_img from "../../Components/cover";
-import "./cover.css";
+
 export default class Cover extends Component {
   constructor(props) {
     super(props);
@@ -10,7 +10,9 @@ export default class Cover extends Component {
     };
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    document.body.style.background = "#07a995";
+  }
 
   render() {
     return (
