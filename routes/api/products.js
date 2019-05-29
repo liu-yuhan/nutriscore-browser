@@ -37,7 +37,7 @@ router.post("/:id", auth, (req, res) => {
     .catch(error => console.log("carrotte", error));
 });
 
-router.get("/:user_id", auth, async (req, res) => {
+router.get("/:user_id", async (req, res) => {
   try {
     const user_id = await User.findById(req.params.user_id);
     const user_products = await Product.find({ user: user_id });
