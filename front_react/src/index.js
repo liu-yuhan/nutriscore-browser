@@ -12,6 +12,7 @@ import Result from './Components/Result'
 import Scan from './Components/Scan';
 import Profile from './Container/Profile/Profile';
 import History from './Components/History'
+import EditProfile from './Container/Profile/EditProfile';
 
 
 ReactDOM.render(
@@ -25,6 +26,7 @@ ReactDOM.render(
             <Route exact path='/result/:id' component={Result} />
             <Route exact path='/profile' component={Profile} />
             <Route exact path='/history' component={History} />
+            <Route exact path='/profile/edit' component={EditProfile} />
             </Switch>
 
         </Router>

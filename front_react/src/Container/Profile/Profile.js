@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Button, Card } from "react-bootstrap";
-// import { Redirect } from "react-router-dom";
+import { Card } from "react-bootstrap";
 import Header from "../../Components/header";
 import "../container_style.css";
 import { connect } from "react-redux";
@@ -8,7 +7,7 @@ import { profile } from "../../redux/action";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
 import moment from 'moment';
-
+import MenuProfile from '../../Components/MenuProfile';
 
 
 
@@ -21,7 +20,6 @@ class Profile extends Component {
             name: '',
             email: '',
             date:'',
-
         }
     }
 
@@ -62,16 +60,15 @@ class Profile extends Component {
             <div>
                 <Header/>
                 <Card border="light">
+                    <MenuProfile props={this.props}/>
                     <Card.Img variant="top" src="https://picsum.photos/300" />
-                    <Card.Header>User's Profile</Card.Header>
+                    <Card.Header>User's Profile
+
+                    </Card.Header>
                     <Card.Body>
                         <Card.Title>Username : {this.state.name}</Card.Title>
                         <Card.Text>Email : {this.state.email}</Card.Text>
                         <Card.Text>Created at : {moment(this.state.date).format("MMMM Do YYYY")}</Card.Text>
-                        <div className="d-flex justify-content-center mt-5">
-                            <Button variant="primary mx-3">Edit</Button>
-                            <Button variant="danger mx-3">Delete</Button>
-                        </div>
                     </Card.Body>
                 </Card>
             </div>
