@@ -14,6 +14,11 @@ export default class Cover extends Component {
     document.body.style.background = "#07a995";
   }
 
+  /*
+    function for click enter button. 
+    if get correct Token, it will redirect to profile page.
+    otherwise, to login page.
+   */
   enterAppHandler = event => {
     console.log("button clicked");
     const getToken = localStorage.getItem("jwToken");
