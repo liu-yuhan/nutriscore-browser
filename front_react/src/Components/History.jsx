@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import jwt_decode from 'jwt-decode'
+import ProductList from './ProductList.component'
 
 
 export default class History extends Component {
@@ -15,24 +16,30 @@ export default class History extends Component {
     componentWillMount(){
         const token=localStorage.jwToken
         const decoded=jwt_decode(token)
-        console.log(decoded.user.id)
         axios.get('http://localhost:5000/api/product/'+decoded.user.id)
         .then(res=>{
-            console.log(res)
             this.setState({
                 history:res.data
             })
-            console.log(this.history)
         })
         .catch(err =>{
             console.log(err)
         })
     }
 
+    historyList(){    
+        return this.state.history.map((currentHistory, i) => {
+            return <ProductList history={currentHistory} key={i} />;
+        });
+    }
+
     render() {
         return (
-            <div>
+            <div className='container'>
+                <div className="jumbotron">
                     Hello
+                    {this.historyList()}
+                </div>
             </div>
         )
     }
