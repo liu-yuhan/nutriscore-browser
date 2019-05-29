@@ -57,18 +57,19 @@ export const login = user => {
       const { token } = result;
       localStorage.setItem("jwToken", token);
       setAuthToken(token);
-      dispatch(userValid(result));
+      dispatch(userLogin(result));
     }
   };
 };
 
 export const profile = user => {
   const { id } = user;
+  console.log("id : ", id);
 
   return async dispatch => {
     const response = await reqProfile({ id });
     const result = response.data;
-    console.log('Profile', result);
-    dispatch(userValid(result))
+    console.log("Profile", response);
+    dispatch(userProfile(result));
   };
 };

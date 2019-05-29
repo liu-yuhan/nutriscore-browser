@@ -7,7 +7,8 @@ const initUser = {
   password: "",
   msg: "",
   redirect: "",
-  token: ""
+  token: "",
+  id: ""
 };
 
 function user(state = initUser, action) {
@@ -17,7 +18,7 @@ function user(state = initUser, action) {
     case USER_LOGIN:
       return { ...action.data, redirect: true };
     case USER_PROFILE:
-      return { ...action.data, redirect: true };
+      return { ...action.data };
     case ERR_MSG:
       return { ...state, msg: action.data };
     default:
