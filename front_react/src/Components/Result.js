@@ -42,7 +42,7 @@ class Result extends Component {
             ) : null}
           </div>
           <div className="">
-            <div className="card-body">
+            <div className="card-body productPic">
               {!this.state.resultScan ? (
                 <div>Chargement des données en cours</div>
               ) : !this.state.resultScan.product.product_name ? (
@@ -51,6 +51,12 @@ class Result extends Component {
                 </div>
               ) : (
                 <>
+                  <div className="donut-center">
+                    <svg viewBox="0 0 32 32">
+                      <circle r="16" cx="16" cy="16" />
+                    </svg>
+                    <div className="donut-chart" />
+                  </div>
                   <div className="genericName">
                     <h5>
                       {this.state.resultScan.product.generic_name},
@@ -60,6 +66,9 @@ class Result extends Component {
                       </small>
                     </h5>
                   </div>
+                  <br />
+                  <br />
+                  <br />
                   <p className="card-text">
                     Product origin :
                     {this.state.resultScan.product.origins === ""

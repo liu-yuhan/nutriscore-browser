@@ -37,14 +37,21 @@
   margin-left: 50%;
 }
 
+.card1 {
+  margin-top: 20%;
+  margin-left: 15%;
+}
+
 .card {
   margin-top: 250px;
   width: 700px;
   height: 300px;
   margin-left: 30%;
 }
-.genericName {
-  margin-top: 10%;
+.productPic {
+  margin-top: -40%;
+  margin-left: 20%;
+  color: #07a995;
 }
 .img2 {
   max-width: 100px;
@@ -52,6 +59,7 @@
   margin-left: 35%;
   margin-top: 20%;
 }
+
 @media screen and (max-width: 768px) {
   .navbar {
     color: aliceblue;
