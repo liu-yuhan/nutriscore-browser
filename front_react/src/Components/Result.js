@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Axios from "axios";
 import Navbar from "../Components/navbar";
 import Donut from "../Components/donut";
+import DonutChart from "react-donut-chart";
 
 class Result extends Component {
   constructor(props) {
@@ -21,7 +22,7 @@ class Result extends Component {
     )
       .then(result => {
         this.setState({ resultScan: result.data });
-        console.log(this.state.resultScan.product.product_name);
+        console.log("result: ", result.data);
       })
       .catch(err => {
         console.log(err);
@@ -63,6 +64,22 @@ class Result extends Component {
                   </div>
                   <br />
                   <br />
+                  <DonutChart
+                    data={[
+                      {
+                        label: "Glucides",
+                        value: this.state.resultScan.product.ingredients.percent //this.state.resultScan.product.packaging
+                      },
+                      {
+                        label: "lipides",
+                        value: 64
+                      },
+                      {
+                        label: "autres merdes",
+                        value: 13
+                      }
+                    ]}
+                  />
                   <br />
                   <p className="card-text">
                     Product origin :
@@ -86,7 +103,6 @@ class Result extends Component {
             </div>
           </div>
         </div>
-        <Donut id={this.props.match.barcodes} />
       </>
     );
   }
