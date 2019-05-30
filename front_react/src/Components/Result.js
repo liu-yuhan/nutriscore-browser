@@ -22,7 +22,7 @@ class Result extends Component {
     )
       .then(result => {
         this.setState({ resultScan: result.data });
-        console.log("result: ", result.data);
+        console.log(result.data);
       })
       .catch(err => {
         console.log(err);
@@ -43,6 +43,7 @@ class Result extends Component {
               />
             ) : null}
           </div>
+
           <div className="">
             <div className="card-body productPic">
               {!this.state.resultScan ? (
@@ -55,7 +56,7 @@ class Result extends Component {
                 <>
                   <div className="genericName">
                     <h5>
-                      {this.state.resultScan.product.generic_name},
+                      {this.state.resultScan.product.generic_name}
                       <br />
                       <small>
                         {this.state.resultScan.product.product_name}
@@ -64,23 +65,8 @@ class Result extends Component {
                   </div>
                   <br />
                   <br />
-                  <DonutChart
-                    data={[
-                      {
-                        label: "Glucides",
-                        value: this.state.resultScan.product.ingredients.percent //this.state.resultScan.product.packaging
-                      },
-                      {
-                        label: "lipides",
-                        value: 64
-                      },
-                      {
-                        label: "autres merdes",
-                        value: 13
-                      }
-                    ]}
-                  />
                   <br />
+
                   <p className="card-text">
                     Product origin :
                     {this.state.resultScan.product.origins === ""
@@ -98,6 +84,23 @@ class Result extends Component {
                   <p className="">
                     Packaging : {this.state.resultScan.product.packaging}
                   </p>
+                  <DonutChart
+                    width="420"
+                    data={[
+                      {
+                        label: "Glucides",
+                        value: 12 //this.state.resultScan.product.packaging
+                      },
+                      {
+                        label: "lipides",
+                        value: 64
+                      },
+                      {
+                        label: "autres merdes",
+                        value: 13
+                      }
+                    ]}
+                  />
                 </>
               )}
             </div>
