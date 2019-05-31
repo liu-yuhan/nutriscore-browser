@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form, Col, Button, Row } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 import { Redirect } from "react-router-dom";
 import Header from "../../Components/header";
 import "../container_style.css";
@@ -34,6 +34,7 @@ class Register extends Component {
     }
   };
   componentWillMount() {
+    document.body.style.background = "#ffffff";
     const getToken = localStorage.getItem("jwToken");
     if (getToken) {
       const decodeToken = jwt_decode(getToken);

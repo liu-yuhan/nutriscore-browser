@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import { Form, Button } from "react-bootstrap";
 import { Redirect } from "react-router-dom";
-import Header from "../../Components/header";
+import Navbar from "../../Components/navbar";
+import Footer from "../../Components/tabBar";
 import { connect } from "react-redux";
 import { login } from "../../redux/action";
-import Register from "../Register/register";
 import jwt_decode from "jwt-decode";
+import "../container_style.css";
 
 class Login extends Component {
   constructor(props) {
@@ -18,10 +19,10 @@ class Login extends Component {
   }
 
   changeHandler = event => {
-    var stateName = event.target.name;
-    var newValue = event.target.value;
+    let stateName = event.target.name;
+    let newValue = event.target.value;
     this.setState({ [stateName]: newValue });
-    console.log(this.state);
+    // console.log(this.state);
   };
 
   submitHandler = event => {
@@ -33,25 +34,26 @@ class Login extends Component {
   };
 
   componentWillMount() {
+    document.body.style.background = "#ffffff";
     const getToken = localStorage.getItem("jwToken");
     if (getToken) {
       const decodeToken = jwt_decode(getToken);
       const currentTime = Date.now() / 1000;
       if (decodeToken.exp >= currentTime) {
-        this.props.history.replace("/home");
+        this.props.history.replace("/profile");
       }
     }
   }
   render() {
-    console.log(this.props.user);
+    // console.log(this.props.user);
     const { msg, token } = this.props.user;
     if (token) {
-      console.log(token);
-      return <Redirect to="/home" />;
+      // console.log(token);
+      return <Redirect to="/profile" />;
     }
     return (
       <div>
-        <Header />
+        <Navbar />
         <div className="container mx-auto register_form">
           {msg ? <h1> {msg}</h1> : null}
           <Form className="container my-3 d-block">
@@ -82,6 +84,7 @@ class Login extends Component {
             </Button>
           </Form>
         </div>
+        <Footer />
       </div>
     );
   }

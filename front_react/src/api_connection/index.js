@@ -6,3 +6,8 @@ import api_connector from "./api_connector";
 export const reqRegister = user => api_connector("api/users", user, "POST");
 
 export const reqLogin = user => api_connector("api/auth", user, "POST");
+
+export const reqProfile = user =>
+  api_connector("api/profile", user, "GET", {
+    headers: { "x-auth-token": user.token }
+  });

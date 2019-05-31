@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Axios from "axios";
+import { login } from "../redux/action";
 import Navbar from "../Components/navbar";
 import DonutChart from "react-donut-chart";
 
@@ -12,8 +13,7 @@ class Result extends Component {
   }
 
   componentDidMount() {
-    console.log("result props: ", this.props);
-
+    //const getToken = localStorage.getItem("jwToken");
     Axios.get(
       "https://fr.openfoodfacts.org/api/V0/produit/" +
         this.props.match.params.id +

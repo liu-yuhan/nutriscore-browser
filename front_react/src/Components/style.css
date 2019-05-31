@@ -1,24 +1,18 @@
-@font-face {
+/* For NavBar*/
+.logo {
   font-family: "Blanch Caps Regular";
   font-style: normal;
   font-weight: normal;
-  src: url("../Container/fonts/blanch_caps-webfont.woff") format("woff"),
-    url("../Container/fonts/blanch_caps-webfont.ttf") format("ttf");
+  src: url("fonts/blanch_caps-webfont.woff") format("woff"),
+    url("fonts/blanch_caps-webfont.ttf") format("ttf");
+  font-size: 4rem;
 }
-.header {
+
+.headNav {
   color: aliceblue;
   background-color: #07a995;
   height: 150px;
   padding-top: 40px;
-}
-.logo {
-  font-family: "Blanch Caps Regular";
-  font-size: 4rem;
-}
-.navbar {
-  color: aliceblue;
-  background-color: #07a995;
-  height: 70px;
 }
 .response {
   height: "mx-auto py-auto";
@@ -53,7 +47,7 @@
   margin-top: -80%;
 }
 @media screen and (max-width: 768px) {
-  .navbar {
+  .headNav {
     color: aliceblue;
     background-color: #07a995;
     height: 50px;
@@ -89,4 +83,62 @@
 }
 .genericName {
   margin-top: 70%;
+}
+
+/* for TabBar */
+.footer {
+  height: 8%;
+  background-color: #07a995;
+}
+
+.icon_footer {
+  color: aliceblue;
+  font-size: 24px;
+}
+.main-button {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  border-radius: 100%;
+  background-color: #07a995;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  font-weight: lighter;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
+.child-button {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 1px 3px;
+  color: #8898a5;
+}
+/* for Cover Page */
+#cover_logo {
+  width: 30%;
+  margin-top: 50%;
+  margin-left: 35%;
+}
+
+#cover_image {
+  /* height: 619px;*/
+  display: block;
+}
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans");
+@import url("https://fonts.googleapis.com/css?family=Chenla&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lobster&display=swap");
+#cover_title {
+  color: aliceblue;
+  font-family: "Lobster", cursive;
+  margin-top: 28%;
 }
