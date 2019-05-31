@@ -47,7 +47,7 @@ class Profile extends Component {
 
         }
     }
-  }
+  //}
 
   //       console.log("State.id : ", this.state);
   //       this.props.profile(this.state);
