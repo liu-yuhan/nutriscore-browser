@@ -8,7 +8,6 @@
   font-size: 4rem;
 }
 
-.headNav {
 .header {
   color: aliceblue;
   background-color: #07a995;
@@ -22,7 +21,7 @@
 .navbar {
   color: aliceblue;
   background-color: #07a995;
-  height: 70px;
+  height: 50px;
 }
 .response {
   height: "mx-auto py-auto";
@@ -32,9 +31,9 @@
 }
 
 .logo2 {
-  margin-top: -2%;
-  width: 40px;
-  height: 50px;
+  margin-top: 0%;
+  width: 30px;
+  height: 40px;
   margin-left: 50%;
 }
 .donut {
