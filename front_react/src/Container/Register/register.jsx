@@ -34,6 +34,7 @@ class Register extends Component {
     }
   };
   componentWillMount() {
+    document.body.style.background = "#ffffff";
     const getToken = localStorage.getItem("jwToken");
     if (getToken) {
       const decodeToken = jwt_decode(getToken);

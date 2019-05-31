@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import { Form, Button } from "react-bootstrap";
 import { Redirect } from "react-router-dom";
-import Header from "../../Components/header";
+import Navbar from "../../Components/navbar";
 import Footer from "../../Components/tabBar";
 import { connect } from "react-redux";
 import { login } from "../../redux/action";
 import jwt_decode from "jwt-decode";
+import "../container_style.css";
 
 class Login extends Component {
   constructor(props) {
@@ -33,6 +34,7 @@ class Login extends Component {
   };
 
   componentWillMount() {
+    document.body.style.background = "#ffffff";
     const getToken = localStorage.getItem("jwToken");
     if (getToken) {
       const decodeToken = jwt_decode(getToken);
@@ -51,7 +53,7 @@ class Login extends Component {
     }
     return (
       <div>
-        <Header />
+        <Navbar />
         <div className="container mx-auto register_form">
           {msg ? <h1> {msg}</h1> : null}
           <Form className="container my-3 d-block">

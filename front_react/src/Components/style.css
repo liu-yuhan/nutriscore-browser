@@ -1,30 +1,102 @@
-@font-face {
+/* For NavBar*/
+.logo {
   font-family: "Blanch Caps Regular";
   font-style: normal;
   font-weight: normal;
   src: url("fonts/blanch_caps-webfont.woff") format("woff"),
     url("fonts/blanch_caps-webfont.ttf") format("ttf");
+  font-size: 4rem;
 }
 
-.header {
+.headNav {
   color: aliceblue;
   background-color: #07a995;
   height: 150px;
   padding-top: 40px;
 }
 
-.logo {
-  font-family: "Blanch Caps Regular";
-  font-size: 4rem;
+.response {
+  height: "mx-auto py-auto";
+  width: 700px;
+  margin-top: 150px;
+  margin-left: 100px;
 }
 
-.navbar {
-  background-color: #07a995;
+.logo2 {
+  width: 40px;
+  height: 50px;
+  margin-left: 50%;
+}
+
+.card1 {
+  margin-top: 20%;
+  margin-left: 15%;
+}
+
+.card {
+  margin-top: 250px;
+  width: 700px;
+  height: 300px;
+  margin-left: 30%;
+}
+.productPic {
+  margin-top: -40%;
+  margin-left: 20%;
+  color: #07a995;
+}
+.img2 {
+  max-width: 100px;
+  min-width: 80px;
+  margin-left: 35%;
+  margin-top: 20%;
+}
+
+@media screen and (max-width: 768px) {
+  .headNav {
+    color: aliceblue;
+    background-color: #07a995;
+    height: 50px;
+    padding-top: 40px;
+  }
+  .response {
+    height: 40px;
+    width: 700px;
+    margin-top: 150px;
+    margin-left: 100px;
+  }
+
+  .card1 {
+    margin-top: 100px;
+    width: 380px;
+    height: 700px;
+    margin-left: 17px;
+  }
+
+  .logo2 {
+    width: 40px;
+    height: 40px;
+    margin-left: 50%;
+    margin-top: -35px;
+  }
+  .img2 {
+    width: 180px;
+    height: 450px;
+    margin-left: 35%;
+    margin-top: 20%;
+  }
+}
+.genericName {
+  margin-top: 70%;
+}
+
+/* for TabBar */
+.footer {
   height: 8%;
+  background-color: #07a995;
 }
 
-.icon {
-  color: white;
+.icon_footer {
+  color: aliceblue;
   font-size: 24px;
 }
 .main-button {
@@ -54,4 +126,23 @@
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.2) 0 1px 3px;
   color: #8898a5;
+}
+/* for Cover Page */
+#cover_logo {
+  width: 30%;
+  margin-top: 50%;
+  margin-left: 35%;
+}
+
+#cover_image {
+  /* height: 619px;*/
+  display: block;
+}
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans");
+@import url("https://fonts.googleapis.com/css?family=Chenla&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lobster&display=swap");
+#cover_title {
+  color: aliceblue;
+  font-family: "Lobster", cursive;
+  margin-top: 28%;
 }

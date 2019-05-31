@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Axios from "axios";
 import { login } from "../redux/action";
+import Navbar from "../Components/navbar";
 
 class Result extends Component {
   constructor(props) {
@@ -11,7 +12,7 @@ class Result extends Component {
   }
 
   componentDidMount() {
-    const getToken = localStorage.getItem("jwToken");
+    //const getToken = localStorage.getItem("jwToken");
     Axios.get(
       "https://fr.openfoodfacts.org/api/V0/produit/" +
         this.props.match.params.id +
@@ -29,39 +30,69 @@ class Result extends Component {
 
   render() {
     return (
-      <div>
-        {!this.state.resultScan ? (
-          <div>Chargement des données en cours</div>
-        ) : !this.state.resultScan.product.product_name ? (
-          <div className="jumbotron mx-auto mt-2">
-            <p>Produit non trouvé</p>
+      <>
+        <Navbar />
+        <div className="row no-gutters card1">
+          <div className="col-md-4">
+            {this.state.resultScan ? (
+              <img
+                src={this.state.resultScan.product.image_front_url}
+                className="card-img img-responsive img2"
+                alt="..."
+              />
+            ) : null}
           </div>
-        ) : (
-          <div className="jumbotron mx-auto mt-2">
-            Hello, you're on page {this.props.match.params.id}
-            <br />
-            Le produit est du : {this.state.resultScan.product.product_name}
-            <br />
-            Origine :{" "}
-            {this.state.resultScan.product.origins === ""
-              ? "Non définie"
-              : this.state.resultScan.product.origins}
-            <br />
-            <img
-              alt="Produit"
-              className="text-right"
-              src={this.state.resultScan.product.image_front_url}
-            />
-            <br />
-            Huile de Palme :{" "}
-            {this.state.resultScan.product.ingredients_from_palm_oil_n === "1"
-              ? "Oui"
-              : "Non"}
-            <br />
-            Packaging : {this.state.resultScan.product.packaging}
+          <div className="">
+            <div className="card-body productPic">
+              {!this.state.resultScan ? (
+                <div>Chargement des données en cours</div>
+              ) : !this.state.resultScan.product.product_name ? (
+                <div>
+                  <p>Produit non trouvé</p>
+                </div>
+              ) : (
+                <>
+                  <div className="donut-center">
+                    <svg viewBox="0 0 32 32">
+                      <circle r="16" cx="16" cy="16" />
+                    </svg>
+                    <div className="donut-chart" />
+                  </div>
+                  <div className="genericName">
+                    <h5>
+                      {this.state.resultScan.product.generic_name},
+                      <br />
+                      <small>
+                        {this.state.resultScan.product.product_name}
+                      </small>
+                    </h5>
+                  </div>
+                  <br />
+                  <br />
+                  <br />
+                  <p className="card-text">
+                    Product origin :
+                    {this.state.resultScan.product.origins === ""
+                      ? "Non définie"
+                      : this.state.resultScan.product.origins}
+                  </p>
+                  <p className="card-text">
+                    {" "}
+                    Oil palm :
+                    {this.state.resultScan.product
+                      .ingredients_from_palm_oil_n === "1"
+                      ? "Oui"
+                      : "Non"}
+                  </p>
+                  <p className="">
+                    Packaging : {this.state.resultScan.product.packaging}
+                  </p>
+                </>
+              )}
+            </div>
           </div>
-        )}
-      </div>
+        </div>
+      </>
     );
   }
 }
