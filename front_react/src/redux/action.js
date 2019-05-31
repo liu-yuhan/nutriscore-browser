@@ -69,7 +69,7 @@ export const profile = user => {
   return async dispatch => {
     const response = await reqProfile({ id });
     const result = response.data;
-    console.log("Profile", response);
+    console.log("Profile", result);
     dispatch(userProfile(result));
   };
 };
