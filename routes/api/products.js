@@ -47,6 +47,7 @@ router.get('/:user_id', async (req, res) => {
 });
 
 router.delete('/:barcode', auth, async (req, res) => {
+router.post('/:id', auth, async (req, res) => {
   try {
     const product = await Product.findOne({
       $and: [{ barcode: req.params.barcode }, { user: req.user.id }]
