@@ -13,6 +13,8 @@ import store from "./redux/store";
 import Cover from "./Container/Cover/cover";
 import Result from "./Components/Result";
 import Scan from "./Components/Scan";
+import History from './Components/History';
+import EditProfile from './Container/Profile/EditProfile';
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faStroopwafel,
@@ -20,7 +22,9 @@ import {
   faCamera,
   faBarcode
 } from "@fortawesome/free-solid-svg-icons";
-library.add(faCamera, faCoffee, faBarcode, faStroopwafel);
+library.add(faCamera, faCoffee, faCamera, faBarcode, faStroopwafel);
+
+
 ReactDOM.render(
   <Provider store={store}>
     <Router>
