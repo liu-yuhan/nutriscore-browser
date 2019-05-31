@@ -33,10 +33,10 @@ class Result extends Component {
       <>
         <Navbar />
         <div className="row no-gutters card1">
-          <div className="col-md-4">
+          <div className="col-md-2">
             {this.state.resultScan ? (
               <img
-                src={this.state.resultScan.product.image_front_url}
+                src={this.state.resultScan.product.image_url}
                 className="card-img img-responsive img2"
                 alt="..."
               />
@@ -62,29 +62,19 @@ class Result extends Component {
                       </small>
                     </h5>
                   </div>
-                  <br />
-                  <br />
-                  <br />
 
                   <p className="card-text">
-                    Product origin :
-                    {this.state.resultScan.product.origins === ""
+                    Calories :
+                    {this.state.resultScan.product.nutriments.fat_value === ""
                       ? "Non définie"
-                      : this.state.resultScan.product.origins}
-                  </p>
-                  <p className="card-text">
-                    {" "}
-                    Oil palm :
-                    {this.state.resultScan.product
-                      .ingredients_from_palm_oil_n === "1"
-                      ? "Oui"
-                      : "Non"}
-                  </p>
-                  <p className="">
-                    Packaging : {this.state.resultScan.product.packaging}
+                      : Math.floor(
+                          this.state.resultScan.product.nutriments.fat_value * 9
+                        )}
                   </p>
                   <DonutChart
-                    width="750"
+                    className="donut"
+                    height="300"
+                    width="400"
                     data={[
                       {
                         label: "Glucides",
@@ -92,12 +82,12 @@ class Result extends Component {
                           .carbohydrates
                       },
                       {
-                        label: "Lipides",
+                        label: "lipides",
                         value: this.state.resultScan.product.nutriments
                           .fat_value
                       },
                       {
-                        label: "Protéines",
+                        label: "protéines",
                         value: this.state.resultScan.product.nutriments.proteins
                       }
                     ]}
