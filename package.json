@@ -31,7 +31,10 @@
     "chai": "^4.2.0",
     "mocha": "^6.1.4",
     "nodemon": "^1.19.0",
+<<<<<<< master
     "should": "^13.2.3",
+=======
+>>>>>>> Modif test mocha
     "superagent": "^5.0.5",
     "supertest": "^4.0.2"
   }
