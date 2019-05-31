@@ -9,20 +9,20 @@ class Result extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      idScan: ""
+      idScan: ''
     };
   }
 
   componentDidMount() {
     //const getToken = localStorage.getItem("jwToken");
     Axios.get(
-      "https://fr.openfoodfacts.org/api/V0/produit/" +
+      'https://fr.openfoodfacts.org/api/V0/produit/' +
         this.props.match.params.id +
-        ".json"
+        '.json'
     )
       .then(result => {
+        console.log('result', result.data);
         this.setState({ resultScan: result.data });
-        console.log(result.data);
       })
       .catch(err => {
         console.log(err);
@@ -33,19 +33,19 @@ class Result extends Component {
     return (
       <>
         <Navbar />
-        <div className="row no-gutters card1">
-          <div className="col-md-4">
+        <div className='row no-gutters card1'>
+          <div className='col-md-4'>
             {this.state.resultScan ? (
               <img
                 src={this.state.resultScan.product.image_front_url}
-                className="card-img img-responsive img2"
-                alt="..."
+                className='card-img img-responsive img2'
+                alt='...'
               />
             ) : null}
           </div>
 
-          <div className="">
-            <div className="card-body productPic">
+          <div className=''>
+            <div className='card-body productPic'>
               {!this.state.resultScan ? (
                 <div>Chargement des données en cours</div>
               ) : !this.state.resultScan.product.product_name ? (
@@ -54,7 +54,7 @@ class Result extends Component {
                 </div>
               ) : (
                 <>
-                  <div className="genericName">
+                  <div className='genericName'>
                     <h5>
                       {this.state.resultScan.product.generic_name}
                       <br />
@@ -67,37 +67,39 @@ class Result extends Component {
                   <br />
                   <br />
 
-                  <p className="card-text">
+                  <p className='card-text'>
                     Product origin :
-                    {this.state.resultScan.product.origins === ""
-                      ? "Non définie"
+                    {this.state.resultScan.product.origins === ''
+                      ? 'Non définie'
                       : this.state.resultScan.product.origins}
                   </p>
-                  <p className="card-text">
-                    {" "}
+                  <p className='card-text'>
+                    {' '}
                     Oil palm :
                     {this.state.resultScan.product
-                      .ingredients_from_palm_oil_n === "1"
-                      ? "Oui"
-                      : "Non"}
+                      .ingredients_from_palm_oil_n === '1'
+                      ? 'Oui'
+                      : 'Non'}
                   </p>
-                  <p className="">
+                  <p className=''>
                     Packaging : {this.state.resultScan.product.packaging}
                   </p>
                   <DonutChart
-                    width="420"
+                    width='420'
                     data={[
                       {
-                        label: "Glucides",
-                        value: 12 //this.state.resultScan.product.packaging
+                        label: 'Glucides',
+                        value: this.state.resultScan.product.nutriments
+                          .carbohydrates
                       },
                       {
-                        label: "lipides",
-                        value: 64
+                        label: 'lipides',
+                        value: this.state.resultScan.product.nutriments
+                          .fat_value
                       },
                       {
-                        label: "autres merdes",
-                        value: 13
+                        label: 'protéines',
+                        value: this.state.resultScan.product.nutriments.proteins
                       }
                     ]}
                   />
