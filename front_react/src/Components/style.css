@@ -127,6 +127,7 @@
   box-shadow: rgba(0, 0, 0, 0.2) 0 1px 3px;
   color: #8898a5;
 }
+
 /* for Cover Page */
 #cover_logo {
   width: 30%;
@@ -135,7 +136,6 @@
 }
 
 #cover_image {
-  /* height: 619px;*/
   display: block;
 }
 @import url("https://fonts.googleapis.com/css?family=Josefin+Sans");
@@ -145,4 +145,23 @@
   color: aliceblue;
   font-family: "Lobster", cursive;
   margin-top: 28%;
+}
+
+@media screen and (min-width: 1000px) {
+  #cover_logo {
+    width: 15%;
+    margin-top: 12%;
+    margin-left: 44%;
+  }
+  #cover_image {
+    display: block;
+  }
+  @import url("https://fonts.googleapis.com/css?family=Josefin+Sans");
+  @import url("https://fonts.googleapis.com/css?family=Chenla&display=swap");
+  @import url("https://fonts.googleapis.com/css?family=Lobster&display=swap");
+  #cover_title {
+    color: aliceblue;
+    font-family: "Lobster", cursive;
+    margin-top: 15%;
+  }
 }

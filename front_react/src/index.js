@@ -35,6 +35,7 @@ ReactDOM.render(
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/history" component={History} />
         <Route exact path="/profile/edit" component={EditProfile} />
+        <Route exact path="/logout" component={Logout} />
       </Switch>
     </Router>
   </Provider>,
