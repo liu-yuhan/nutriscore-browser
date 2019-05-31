@@ -71,11 +71,13 @@ class Result extends Component {
                       : Math.floor(
                           this.state.resultScan.product.nutriments.fat_value * 9
                         )}
+                    Kcal
                   </p>
                   <DonutChart
                     className="donut"
                     height="300"
                     width="400"
+                    colors={["red", "#07a995", "yellow"]}
                     data={[
                       {
                         label: "Glucides",
