@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Axios from "axios";
-import { login } from "../redux/action";
 
 class Result extends Component {
   constructor(props) {
@@ -11,7 +10,7 @@ class Result extends Component {
   }
 
   componentDidMount() {
-    const getToken = localStorage.getItem("jwToken");
+    // const getToken = localStorage.getItem("jwToken");
     Axios.get(
       "https://fr.openfoodfacts.org/api/V0/produit/" +
         this.props.match.params.id +

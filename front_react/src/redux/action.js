@@ -46,14 +46,14 @@ export const login = user => {
   return async dispatch => {
     const response = await reqLogin({ email, password });
     const result = response.data;
-    console.log(result);
+    // console.log(result);
     if (result.code === 1) {
       //code 0, register success
       //dispacher success action
       // dispatch(userValid(result.data));
       dispatch(errorMsg(result.errors[0].msg));
     } else {
-      console.log("result: ", result);
+      // console.log("result: ", result);
       const { token } = result;
       localStorage.setItem("jwToken", token);
       setAuthToken(token);
@@ -62,11 +62,11 @@ export const login = user => {
   };
 };
 
-export const profile = user => {
-  const { id } = user;
+export const editprofile = user => {
+  const { id, name, email } = user;
 
   return async dispatch => {
-    const response = await reqProfile({ id });
+    const response = await reqProfile({ id, name, email });
     const result = response.data;
     console.log('Profile', result);
     dispatch(userProfile(result))

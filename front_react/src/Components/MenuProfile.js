@@ -47,10 +47,10 @@ function finalChildDeltaPositions(index) {
 }
 
 
-class MenuProfile extends React.Component {
+class MenuProfile extends React.PureComponent {
     constructor(props) {
         super(props);
-        console.log(props);
+        console.log(this.props);
 
         this.state = {
             isOpen: false,
@@ -159,11 +159,15 @@ class MenuProfile extends React.Component {
     }
 
     static editfunction() {
-        return this.props.props.history.push('/profile/edit');
+        console.log(this.props);
+        return this.props.history.push({
+            pathname: '/profile/edit',
+            data: this.props.data
+        });
     }
 
     static scanfunction() {
-        return this.props.props.history.push('/scan');
+        return this.props.history.push('/scan');
     }
 
 

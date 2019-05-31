@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import { Card } from "react-bootstrap";
 import Header from "../../Components/header";
-import "../container_style.css";
-import { connect } from "react-redux";
-import { profile } from "../../redux/action";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
 import moment from 'moment';
@@ -14,7 +11,6 @@ import MenuProfile from '../../Components/MenuProfile';
 class Profile extends Component {
     constructor(props) {
         super(props);
-
         this.state = {
             id: '',
             name: '',
@@ -23,7 +19,7 @@ class Profile extends Component {
         }
     }
 
-    componentDidMount() {
+    componentWillMount() {
         const getToken = localStorage.getItem("jwToken");
 
         if (!getToken){
@@ -49,18 +45,19 @@ class Profile extends Component {
                 })
                 .catch((error) => {
                     console.log(error);
-                })
+                });
 
         }
     }
 
 
     render() {
+        console.log(this.state);
         return(
             <div>
                 <Header/>
                 <Card border="light">
-                    <MenuProfile props={this.props}/>
+                    <MenuProfile data={this.state} history={this.props.history} />
                     <Card.Img variant="top" src="https://picsum.photos/300" />
                     <Card.Header>User's Profile
 
@@ -77,7 +74,4 @@ class Profile extends Component {
 
 }
 
-export default connect(
-    state => ({ user: state.user }),
-    { profile }
-)(Profile);
+export default Profile;
