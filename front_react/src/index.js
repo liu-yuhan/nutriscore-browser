@@ -25,10 +25,12 @@ ReactDOM.render(
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
-        <Route exact path="/logout" component={Logout} />
         <Route exact path="/register" component={Register} />
         <Route exact path="/scan" component={Scan} />
         <Route exact path="/result/:id" component={Result} />
+        <Route exact path="/profile" component={Profile} />
+        <Route exact path="/history" component={History} />
+        <Route exact path="/profile/edit" component={EditProfile} />
       </Switch>
     </Router>
   </Provider>,

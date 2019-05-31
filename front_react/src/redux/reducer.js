@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { USER_VALID, ERR_MSG, USER_LOGIN } from "./action_type";
+import { USER_VALID, ERR_MSG, USER_LOGIN, USER_PROFILE } from "./action_type";
 
 const initUser = {
   name: "",
@@ -16,6 +16,8 @@ function user(state = initUser, action) {
       return { ...action.data, redirect: true };
     case USER_LOGIN:
       return { ...action.data, redirect: true };
+    case USER_PROFILE:
+      return { ...action.data};
     case ERR_MSG:
       return { ...state, msg: action.data };
     default:
