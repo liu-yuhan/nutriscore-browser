@@ -21,6 +21,7 @@ class Result extends Component {
         '.json'
     )
       .then(result => {
+        console.log("result", result.data);
         console.log('result', result.data);
         this.setState({ resultScan: result.data });
       })
