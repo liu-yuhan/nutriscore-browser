@@ -20,19 +20,6 @@ class Profile extends Component {
       date: "",
       token: ""
     };
-    const getToken = localStorage.getItem("jwToken");
-
-    if (!getToken) {
-      this.props.history.push("/login");
-    } else {
-      const decodeToken = jwt_decode(getToken);
-      console.log(decodeToken.user.id);
-      const userId = decodeToken.user.id;
-      this.state.id = userId;
-      this.state.token = getToken;
-      console.log("State.id : ", this.state);
-      this.props.profile(this.state);
-    }
   }
 
   componentDidMount() {

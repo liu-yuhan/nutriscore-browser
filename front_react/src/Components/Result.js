@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Axios from "axios";
 import { login } from "../redux/action";
 import Navbar from "../Components/navbar";
+import DonutChart from "react-donut-chart";
 
 class Result extends Component {
   constructor(props) {
@@ -19,9 +20,9 @@ class Result extends Component {
         ".json"
     )
       .then(result => {
+        console.log("result", result.data);
+        console.log("result", result.data);
         this.setState({ resultScan: result.data });
-
-        console.log(this.state.resultScan.product.product_name);
       })
       .catch(err => {
         console.log(err);
@@ -42,6 +43,7 @@ class Result extends Component {
               />
             ) : null}
           </div>
+
           <div className="">
             <div className="card-body productPic">
               {!this.state.resultScan ? (
@@ -52,41 +54,47 @@ class Result extends Component {
                 </div>
               ) : (
                 <>
-                  <div className="donut-center">
-                    <svg viewBox="0 0 32 32">
-                      <circle r="16" cx="16" cy="16" />
-                    </svg>
-                    <div className="donut-chart" />
-                  </div>
                   <div className="genericName">
                     <h5>
-                      {this.state.resultScan.product.generic_name},
+                      {this.state.resultScan.product.generic_name}
                       <br />
                       <small>
                         {this.state.resultScan.product.product_name}
                       </small>
                     </h5>
                   </div>
-                  <br />
-                  <br />
-                  <br />
+
                   <p className="card-text">
-                    Product origin :
-                    {this.state.resultScan.product.origins === ""
+                    Calories :
+                    {this.state.resultScan.product.nutriments.fat_value === ""
                       ? "Non définie"
-                      : this.state.resultScan.product.origins}
+                      : Math.floor(
+                          this.state.resultScan.product.nutriments.fat_value * 9
+                        )}
+                    Kcal
                   </p>
-                  <p className="card-text">
-                    {" "}
-                    Oil palm :
-                    {this.state.resultScan.product
-                      .ingredients_from_palm_oil_n === "1"
-                      ? "Oui"
-                      : "Non"}
-                  </p>
-                  <p className="">
-                    Packaging : {this.state.resultScan.product.packaging}
-                  </p>
+                  <DonutChart
+                    className="donut"
+                    height="300"
+                    width="400"
+                    colors={["red", "#07a995", "yellow"]}
+                    data={[
+                      {
+                        label: "Glucides",
+                        value: this.state.resultScan.product.nutriments
+                          .carbohydrates
+                      },
+                      {
+                        label: "lipides",
+                        value: this.state.resultScan.product.nutriments
+                          .fat_value
+                      },
+                      {
+                        label: "protéines",
+                        value: this.state.resultScan.product.nutriments.proteins
+                      }
+                    ]}
+                  />
                 </>
               )}
             </div>
