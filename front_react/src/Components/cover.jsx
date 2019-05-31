@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./style.css";
+import "./res_style.css";
 
 export default class Cover_img extends Component {
   render() {
