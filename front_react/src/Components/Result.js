@@ -92,11 +92,11 @@ class Result extends Component {
                         value: 12 //this.state.resultScan.product.packaging
                       },
                       {
-                        label: "lipides",
+                        label: "Lipides",
                         value: 64
                       },
                       {
-                        label: "autres merdes",
+                        label: "Protide",
                         value: 13
                       }
                     ]}
