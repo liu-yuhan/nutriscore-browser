@@ -32,9 +32,13 @@
     "mocha": "^6.1.4",
     "nodemon": "^1.19.0",
 <<<<<<< master
+<<<<<<< master
     "should": "^13.2.3",
 =======
 >>>>>>> Modif test mocha
+=======
+    "should": "^13.2.3",
+>>>>>>> Start Mocha test : Login/Register
     "superagent": "^5.0.5",
     "supertest": "^4.0.2"
   }
