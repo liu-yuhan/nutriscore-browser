@@ -10,6 +10,7 @@ export default class Logout extends Component {
     if (getToken) {
       localStorage.removeItem("jwToken");
     }
+    this.props.history.replace('/login')
   }
 
   render() {
