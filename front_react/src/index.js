@@ -13,7 +13,6 @@ import Cover from "./Container/Cover/cover";
 import Result from "./Components/Result";
 import Scan from "./Components/Scan";
 import History from './Components/History';
-import Profile from './Container/Profile/Profile';
 import EditProfile from './Container/Profile/EditProfile';
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
