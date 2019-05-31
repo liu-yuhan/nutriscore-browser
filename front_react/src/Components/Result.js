@@ -63,29 +63,19 @@ class Result extends Component {
                       </small>
                     </h5>
                   </div>
-                  <br />
-                  <br />
-                  <br />
 
-                  <p className='card-text'>
-                    Product origin :
-                    {this.state.resultScan.product.origins === ''
-                      ? 'Non définie'
-                      : this.state.resultScan.product.origins}
-                  </p>
-                  <p className='card-text'>
-                    {' '}
-                    Oil palm :
-                    {this.state.resultScan.product
-                      .ingredients_from_palm_oil_n === '1'
-                      ? 'Oui'
-                      : 'Non'}
-                  </p>
-                  <p className=''>
-                    Packaging : {this.state.resultScan.product.packaging}
+                  <p className="card-text">
+                    Calories :
+                    {this.state.resultScan.product.nutriments.fat_value === ""
+                      ? "Non définie"
+                      : Math.floor(
+                          this.state.resultScan.product.nutriments.fat_value * 9
+                        )}
                   </p>
                   <DonutChart
-                    width='420'
+                    className="donut"
+                    height="300"
+                    width="400"
                     data={[
                       {
                         label: 'Glucides',
