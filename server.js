@@ -19,6 +19,7 @@ app.use('/api/auth', require('./routes/api/auth'));
 app.use('/api/profile', require('./routes/api/profile'));
 app.use('/api/product', require('./routes/api/products'));
 
-app.listen(PORT, () => {
+
+module.exports=app.listen(PORT, () => {
   console.log(`Server Listening on port ${PORT}`);
 });
