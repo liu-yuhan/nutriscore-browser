@@ -43,6 +43,20 @@ describe("Test Users", () => {
             });
     });
 
+    it("should say account already exist", (done) => {
+        chai.request(server)
+            .post('/api/users')
+            .send({
+            name: "Testeur",
+            email: "test@test.com",
+            password: "test12"
+            })
+            .end((err, res) => {
+                res.should.have.status(400);
+                done();
+            });
+    });
+
     it("should login a user", (done) => {
     chai.request(server)
         .post('/api/auth')
@@ -57,4 +71,35 @@ describe("Test Users", () => {
             done();
             });
     });
+
+    it("should not log user because email doesn't exist", (done) => {
+        chai.request(server)
+            .post('/api/auth')
+            .send({
+                email: "nexistepas@test.com",
+                password: "test12"
+            })
+    
+            .end((err, res) => {
+                res.should.have.status(400);
+                //res.body.should.be.a('object');
+                done();
+            });
+    });
+
+    it("should not log user cause password is wrong", (done) => {
+        chai.request(server)
+            .post('/api/auth')
+            .send({
+                email: "test@test.com",
+                password: "test123"
+            })
+    
+            .end((err, res) => {
+                res.should.have.status(400);
+                //res.body.should.be.a('object');
+                done();
+                });
+    });
+
 });
