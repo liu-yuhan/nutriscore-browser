@@ -69,12 +69,7 @@ export const profile = user => {
   return async dispatch => {
     const response = await reqProfile({ id });
     const result = response.data;
-<<<<<<< HEAD
-    console.log('Profile', result);
-    dispatch(userProfile(result))
-=======
     console.log("Profile", response);
     dispatch(userProfile(result));
->>>>>>> yuhan
   };
 };
