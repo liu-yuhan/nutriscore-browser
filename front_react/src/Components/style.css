@@ -8,13 +8,21 @@
   font-size: 4rem;
 }
 
-.headNav {
+.header {
   color: aliceblue;
   background-color: #07a995;
-  height: 150px;
+  height: 60px;
   padding-top: 40px;
 }
-
+.logo {
+  font-family: "Blanch Caps Regular";
+  font-size: 4rem;
+}
+.navbar {
+  color: aliceblue;
+  background-color: #07a995;
+  height: 50px;
+}
 .response {
   height: "mx-auto py-auto";
   width: 700px;
@@ -23,16 +31,18 @@
 }
 
 .logo2 {
-  width: 40px;
-  height: 50px;
+  margin-top: 0%;
+  width: 30px;
+  height: 40px;
   margin-left: 50%;
 }
-
-.card1 {
-  margin-top: 20%;
-  margin-left: 15%;
+.donut {
+  margin-top: 30%;
 }
-
+.card1 {
+  margin-top: 30%;
+  margin-left: 25%;
+}
 .card {
   margin-top: 250px;
   width: 700px;
@@ -40,17 +50,16 @@
   margin-left: 30%;
 }
 .productPic {
-  margin-top: -40%;
+  margin-top: -102%;
   margin-left: 20%;
   color: #07a995;
 }
 .img2 {
   max-width: 100px;
   min-width: 80px;
-  margin-left: 35%;
-  margin-top: 20%;
+  margin-left: 60%;
+  margin-top: -80%;
 }
-
 @media screen and (max-width: 768px) {
   .headNav {
     color: aliceblue;
@@ -64,14 +73,12 @@
     margin-top: 150px;
     margin-left: 100px;
   }
-
   .card1 {
-    margin-top: 100px;
+    margin-top: 25%;
     width: 380px;
     height: 700px;
     margin-left: 17px;
   }
-
   .logo2 {
     width: 40px;
     height: 40px;
@@ -79,14 +86,22 @@
     margin-top: -35px;
   }
   .img2 {
-    width: 180px;
-    height: 450px;
-    margin-left: 35%;
-    margin-top: 20%;
+    margin-left: 10%;
+    margin-top: 35%;
+  }
+  .donut {
+    width: 70%;
+    margin-right: -21px;
+    margin-left: 30%;
   }
 }
 .genericName {
-  margin-top: 70%;
+  margin-top: 30%;
+  margin-left: 45%;
+}
+.card-text {
+  margin-left: 45%;
+  margin-top: 30%;
 }
 
 /* for TabBar */
