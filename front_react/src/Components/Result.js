@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Axios from "axios";
 import { login } from "../redux/action";
 import Navbar from "../Components/navbar";
+import Donut from "../Components/donut";
 import DonutChart from "react-donut-chart";
 
 class Result extends Component {
@@ -21,7 +22,7 @@ class Result extends Component {
     )
       .then(result => {
         console.log("result", result.data);
-        console.log("result", result.data);
+        console.log('result', result.data);
         this.setState({ resultScan: result.data });
       })
       .catch(err => {
@@ -33,19 +34,19 @@ class Result extends Component {
     return (
       <>
         <Navbar />
-        <div className="row no-gutters card1">
-          <div className="col-md-4">
+        <div className='row no-gutters card1'>
+          <div className='col-md-4'>
             {this.state.resultScan ? (
               <img
                 src={this.state.resultScan.product.image_front_url}
-                className="card-img img-responsive img2"
-                alt="..."
+                className='card-img img-responsive img2'
+                alt='...'
               />
             ) : null}
           </div>
 
-          <div className="">
-            <div className="card-body productPic">
+          <div className=''>
+            <div className='card-body productPic'>
               {!this.state.resultScan ? (
                 <div>Chargement des données en cours</div>
               ) : !this.state.resultScan.product.product_name ? (
@@ -54,7 +55,7 @@ class Result extends Component {
                 </div>
               ) : (
                 <>
-                  <div className="genericName">
+                  <div className='genericName'>
                     <h5>
                       {this.state.resultScan.product.generic_name}
                       <br />
@@ -78,17 +79,17 @@ class Result extends Component {
                     width="400"
                     data={[
                       {
-                        label: "Glucides",
+                        label: 'Glucides',
                         value: this.state.resultScan.product.nutriments
                           .carbohydrates
                       },
                       {
-                        label: "lipides",
+                        label: 'lipides',
                         value: this.state.resultScan.product.nutriments
                           .fat_value
                       },
                       {
-                        label: "protéines",
+                        label: 'protéines',
                         value: this.state.resultScan.product.nutriments.proteins
                       }
                     ]}
