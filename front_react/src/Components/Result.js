@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Axios from "axios";
 import Navbar from "../Components/navbar";
-import Donut from "../Components/donut";
 import DonutChart from "react-donut-chart";
 
 class Result extends Component {
@@ -14,15 +13,15 @@ class Result extends Component {
 
   componentDidMount() {
     console.log("result props: ", this.props);
-    const Token = localStorage.getItem("jwToken");
+
     Axios.get(
       "https://fr.openfoodfacts.org/api/V0/produit/" +
         this.props.match.params.id +
         ".json"
     )
       .then(result => {
+        console.log("result", result.data);
         this.setState({ resultScan: result.data });
-        console.log(result.data);
       })
       .catch(err => {
         console.log(err);
@@ -85,19 +84,21 @@ class Result extends Component {
                     Packaging : {this.state.resultScan.product.packaging}
                   </p>
                   <DonutChart
-                    width="420"
+                    width="750"
                     data={[
                       {
                         label: "Glucides",
-                        value: 12 //this.state.resultScan.product.packaging
+                        value: this.state.resultScan.product.nutriments
+                          .carbohydrates
                       },
                       {
                         label: "Lipides",
-                        value: 64
+                        value: this.state.resultScan.product.nutriments
+                          .fat_value
                       },
                       {
-                        label: "Protide",
-                        value: 13
+                        label: "Protéines",
+                        value: this.state.resultScan.product.nutriments.proteins
                       }
                     ]}
                   />
