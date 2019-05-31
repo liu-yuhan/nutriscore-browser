@@ -4,11 +4,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Register from "./Container/Register/register";
 import Login from "./Container/Login/login";
 import Logout from "./Container/Logout/logout";
+import Profile from "./Container/Profile/Profile";
 import * as serviceWorker from "./serviceWorker";
 import { Provider } from "react-redux";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import store from "./redux/store";
-import Home from "./Container/Home/Home";
+import Cover from "./Container/Cover/cover";
 import Result from "./Components/Result";
 import Scan from "./Components/Scan";
 import History from './Components/History';
@@ -28,7 +29,7 @@ ReactDOM.render(
   <Provider store={store}>
     <Router>
       <Switch>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/" component={Cover} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
         <Route exact path="/scan" component={Scan} />

@@ -64,11 +64,17 @@ export const login = user => {
 
 export const profile = user => {
   const { id } = user;
+  console.log("id : ", id);
 
   return async dispatch => {
     const response = await reqProfile({ id });
     const result = response.data;
+<<<<<<< HEAD
     console.log('Profile', result);
     dispatch(userProfile(result))
+=======
+    console.log("Profile", response);
+    dispatch(userProfile(result));
+>>>>>>> yuhan
   };
 };
