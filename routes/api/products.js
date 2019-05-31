@@ -49,8 +49,6 @@ router.get("/:user_id", async (req, res) => {
   }
 });
 
-<<<<<<< HEAD
-=======
 router.post('/:id', auth, async (req, res) => {
   try {
     const newProduct = new Product({
@@ -66,56 +64,6 @@ router.post('/:id', auth, async (req, res) => {
   }
 })
 
-router.post('/comments/:id',
-[
-   auth,
-   [
-     check('text', 'Need a comment !')
-     .not()
-     .isEmpty()
-   ]
-],
-
-  async(req, res) => {
-    const errors = validationResult(req);
-    if(!errors.isEmpty()) {
-      res.status(400).json({error: errors})
-    };
-    try{
-    let user = await User.findOne({ email: email })
-    let product = await Products.findById(req.params.id);
-
-    const newComment = {
-      text: req.body.text, 
-      user: req.user.id
-    };
-
-    product.comments.unshift(newComment);
-    await product.save()
-    res.json({product, user});
-  } catch(err){
-    console.error(err.message);
-    res.status(500).send('Server Error');
-  };
-  }
-);
-
-router.delete('/comments/delete/:id', auth, async (req, res) => {
-  try{
-  const comment = await Product.findById(req.params.id);
-
-    if(comment.user.toString() !== req.user.id){
-      return res.status(401).json({msg: 'Not authorize to delete this comment'})
-    } 
-    await comment.remove();
-    res.json({msg: 'Comment deleted !'})
-
-  } catch(err){
-    res.status(400).json({err: error})
-  }
-})
 
 
-
->>>>>>> yuhan
 module.exports = router;
