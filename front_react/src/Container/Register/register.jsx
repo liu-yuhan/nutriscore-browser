@@ -19,8 +19,8 @@ class Register extends Component {
     };
   }
   changeHandler = event => {
-    var stateName = event.target.name;
-    var newValue = event.target.value;
+    let stateName = event.target.name;
+    let newValue = event.target.value;
     this.setState({ [stateName]: newValue });
     //console.log(this.state);
   };
@@ -40,7 +40,7 @@ class Register extends Component {
       const decodeToken = jwt_decode(getToken);
       const currentTime = Date.now() / 1000;
       if (decodeToken.exp >= currentTime) {
-        this.props.history.replace("/home");
+        this.props.history.replace("/profile");
       }
     }
   }
@@ -48,7 +48,7 @@ class Register extends Component {
     console.log(this.props.user);
     const { msg, token } = this.props.user;
     if (token) {
-      return <Redirect to="/home" />;
+      return <Redirect to="/profile" />;
     }
 
     return (
