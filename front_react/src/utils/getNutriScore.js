@@ -1,9 +1,8 @@
-const a = require("../../src/Components/images/A.png");
-const b = require("../../src/Components/images/B.png");
-const c = require("../../src/Components/images/C.png");
-const d = require("../../src/Components/images/D.png");
-const e = require("../../src/Components/images/E.png");
-
+const a = "/images/A.png";
+const b = "/images/B.png";
+const c = "/images/C.png";
+const d = "/images/D.png";
+const e = "/images/E.png";
 const getNutriScore = nutriscore => {
   switch (nutriscore) {
     case "a":
