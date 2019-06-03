@@ -13,7 +13,7 @@ import store from "./redux/store";
 import Cover from "./Container/Cover/cover";
 import Result from "./Components/Result";
 import Scan from "./Components/Scan";
-import History from "./Components/History"
+import History from "./Components/History";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faStroopwafel,
@@ -22,7 +22,6 @@ import {
   faBarcode
 } from "@fortawesome/free-solid-svg-icons";
 library.add(faCamera, faCoffee, faCamera, faBarcode, faStroopwafel);
-
 
 ReactDOM.render(
   <Provider store={store}>
@@ -36,7 +35,7 @@ ReactDOM.render(
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/history" component={History} />
         <Route exact path="/profile/edit" component={EditProfile} />
-        <Route exact path='/logout' component={Logout}/>
+        <Route exact path="/logout" component={Logout} />
       </Switch>
     </Router>
   </Provider>,

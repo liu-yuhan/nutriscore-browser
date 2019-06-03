@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Form, Button } from "react-bootstrap";
 import { Redirect } from "react-router-dom";
-import Header from "../../Components/header";
-import "../container_style.css";
+import Navbar from "../../Components/navbar";
+import Footer from "../../Components/tabBar";
+import "../container_res_style.css";
 import { register } from "../../redux/action";
 import { connect } from "react-redux";
 import jwt_decode from "jwt-decode";
@@ -53,10 +54,10 @@ class Register extends Component {
 
     return (
       <div>
-        <Header />
+        <Navbar />
         <div className="container mx-auto register_form">
           {msg ? <h1> {msg}</h1> : null}
-          <Form className="container my-3 d-block">
+          <Form className="container d-block">
             <Form.Group controlId="form_register_name">
               <Form.Control
                 name="name"
@@ -97,6 +98,7 @@ class Register extends Component {
             </Button>
           </Form>
         </div>
+        <Footer />
       </div>
     );
   }

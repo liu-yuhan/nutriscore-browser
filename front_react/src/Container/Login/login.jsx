@@ -6,7 +6,7 @@ import Footer from "../../Components/tabBar";
 import { connect } from "react-redux";
 import { login } from "../../redux/action";
 import jwt_decode from "jwt-decode";
-import "../container_style.css";
+import "../container_res_style.css";
 
 class Login extends Component {
   constructor(props) {
@@ -54,7 +54,7 @@ class Login extends Component {
     return (
       <div>
         <Navbar />
-        <div className="container mx-auto register_form">
+        <div className="container mx-auto login_form">
           {msg ? <h1> {msg}</h1> : null}
           <Form className="container my-3 d-block">
             <Form.Group controlId="form_register_email">

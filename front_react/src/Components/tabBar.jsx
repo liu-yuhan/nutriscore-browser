@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NavLink } from "react-router-dom";
 import { Navbar } from "react-bootstrap";
-import "./style.css";
+import "./res_style.css";
 
 class Footer extends Component {
   render() {
