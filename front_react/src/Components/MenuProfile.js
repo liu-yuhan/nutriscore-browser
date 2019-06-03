@@ -50,7 +50,6 @@ function finalChildDeltaPositions(index) {
 class MenuProfile extends React.PureComponent {
     constructor(props) {
         super(props);
-        console.log(this.props);
 
         this.state = {
             isOpen: false,

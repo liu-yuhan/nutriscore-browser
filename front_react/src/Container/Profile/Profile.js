@@ -5,6 +5,8 @@ import jwt_decode from "jwt-decode";
 import axios from "axios";
 import moment from 'moment';
 import MenuProfile from '../../Components/MenuProfile';
+import Footer from "../../Components/tabBar";
+import Navbar from "../../Components/navbar";
 
 class Profile extends Component {
     constructor(props) {
@@ -47,18 +49,12 @@ class Profile extends Component {
 
         }
     }
-  //}
-
-  //       console.log("State.id : ", this.state);
-  //       this.props.profile(this.state);
-  //     }
-  //   }
 
     render() {
-        console.log(this.state);
+        console.log('Props : ', this.props);
         return(
             <div>
-                <Header/>
+                <Navbar/>
                 <Card border="light">
                     <MenuProfile data={this.state} history={this.props.history} />
                     <Card.Img variant="top" src="https://picsum.photos/300" />
@@ -71,6 +67,7 @@ class Profile extends Component {
                         <Card.Text>Created at : {moment(this.state.date).format("MMMM Do YYYY")}</Card.Text>
                     </Card.Body>
                 </Card>
+                <Footer />
             </div>
         )
     }
