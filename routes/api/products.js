@@ -9,18 +9,16 @@ router.post("/:id", auth, (req, res) => {
     $and: [{ barcode: req.params.id }, { user: req.user.id }]
   })
     .then(result => {
-      console.log(result);
       if (result === null) {
         const newProduct = new Product({
           barcode: req.params.id,
           user: req.user.id,
           date: Date.now()
         });
-        console.log(newProduct);
         const product = newProduct.save(err => {
           if (err) console.log(err);
           else {
-            res.json(product);
+            res.json(newProduct);
           }
         });
       } else {
@@ -32,7 +30,6 @@ router.post("/:id", auth, (req, res) => {
           .then(result => res.json(product))
           .catch(err => console.log("patate", err));
       }
-      console.log(req.user.id);
     })
     .catch(error => console.log("carrotte", error));
 });
