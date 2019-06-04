@@ -1,26 +1,24 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const Product = require("../../models/Products");
-const User = require("../../models/Users");
-const auth = require("../middleware/auth");
+const Product = require('../../models/Products');
+const User = require('../../models/Users');
+const auth = require('../middleware/auth');
 
-router.post("/:id", auth, (req, res) => {
+router.post('/:id', auth, (req, res) => {
   Product.findOne({
     $and: [{ barcode: req.params.id }, { user: req.user.id }]
   })
     .then(result => {
-      console.log(result);
       if (result === null) {
         const newProduct = new Product({
           barcode: req.params.id,
           user: req.user.id,
           date: Date.now()
         });
-        console.log(newProduct);
         const product = newProduct.save(err => {
           if (err) console.log(err);
           else {
-            res.json(product);
+            res.json(newProduct);
           }
         });
       } else {
@@ -32,12 +30,11 @@ router.post("/:id", auth, (req, res) => {
           .then(result => res.json(product))
           .catch(err => console.log(err));
       }
-      console.log(req.user.id);
     })
     .catch(error => console.log(error));
 });
 
-router.get("/:user_id", async (req, res) => {
+router.get('/:user_id', async (req, res) => {
   try {
     const user_id = await User.findById(req.params.user_id);
     const user_products = await Product.find({ user: user_id });
@@ -45,7 +42,26 @@ router.get("/:user_id", async (req, res) => {
       res.json(user_products);
     }
   } catch (error) {
-    res.status(500).json({ msg: "Internal server error" });
+    res.status(500).json({ msg: 'Internal server error' });
+  }
+});
+
+router.delete('/:barcode', auth, async (req, res) => {
+  try {
+    const product = await Product.findOne({
+      $and: [{ barcode: req.params.barcode }, { user: req.user.id }]
+    });
+    if (!product) {
+      return res.status(404).json({ msg: 'Product not found' });
+    }
+    await product.remove();
+
+    res.json({ msg: 'Product removed ' });
+  } catch (error) {
+    if (error.kind === 'ObjectId') {
+      return res.status(404).json({ msg: 'Product not found' });
+    }
+    res.status(500).send('Server error');
   }
 });
 
