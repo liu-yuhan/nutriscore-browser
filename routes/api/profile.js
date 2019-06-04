@@ -9,7 +9,10 @@ const User = require("../../models/Users");
 //@desc   Profile Route
 //@access private
 router.get("/", auth, async (req, res) => {
+<<<<<<< master
     // console.log(req);
+=======
+>>>>>>> Ajout de tests mocha (Profile/Début products)
     try {
         const user = await User.findById(req.user.id).select("-password");
         res.json(user);
