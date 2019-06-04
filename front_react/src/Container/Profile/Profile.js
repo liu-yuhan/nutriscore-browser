@@ -49,12 +49,16 @@ class Profile extends Component {
           console.log(error);
         });
     }
-  }
 
-  //       console.log("State.id : ", this.state);
-  //       this.props.profile(this.state);
-  //     }
-  //   }
+    render() {
+        console.log('Props : ', this.props);
+        return(
+            <div>
+                <Navbar/>
+                <Card border="light">
+                    <MenuProfile data={this.state} history={this.props.history} />
+                    <Card.Img variant="top" src="https://picsum.photos/300" />
+                    <Card.Header>User's Profile
 
   render() {
     return (
@@ -119,7 +123,4 @@ class Profile extends Component {
   }
 }
 
-export default connect(
-  state => ({ user: state.user }),
-  { profile }
-)(Profile);
+export default Profile;

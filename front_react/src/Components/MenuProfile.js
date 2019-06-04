@@ -54,10 +54,10 @@ function finalChildDeltaPositions(index) {
   };
 }
 
-class MenuProfile extends React.Component {
-  constructor(props) {
-    super(props);
-    console.log(props);
+
+class MenuProfile extends React.PureComponent {
+    constructor(props) {
+        super(props);
 
     this.state = {
       isOpen: false,
@@ -175,13 +175,17 @@ class MenuProfile extends React.Component {
     return this.arrayFunctions[index]();
   }
 
-  static deletefunction() {
-    return alert("Button 0");
-  }
+    static editfunction() {
+        console.log(this.props);
+        return this.props.history.push({
+            pathname: '/profile/edit',
+            data: this.props.data
+        });
+    }
 
-  static editfunction() {
-    return this.props.props.history.push("/profile/edit");
-  }
+    static scanfunction() {
+        return this.props.history.push('/scan');
+    }
 
   static scanfunction() {
     return this.props.props.history.push("/scan");
