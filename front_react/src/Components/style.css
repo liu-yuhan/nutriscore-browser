@@ -10,23 +10,23 @@
   margin-top: 30%;
   margin-left: 25%;
 }
-.card {
+/* .card {
   margin-top: 250px;
   width: 700px;
   height: 300px;
   margin-left: 30%;
-}
+} */
 .productPic {
   margin-top: -102%;
   margin-left: 20%;
   color: #07a995;
 }
-.img2 {
+/* .img2 {
   max-width: 100px;
   min-width: 80px;
   margin-left: 60%;
   margin-top: -80%;
-}
+} */
 @media screen and (max-width: 768px) {
   .response {
     height: 40px;
@@ -40,15 +40,16 @@
     height: 700px;
     margin-left: 17px;
   }
-  .img2 {
+  /* .img2 {
     margin-left: 10%;
     margin-top: 35%;
-  }
+  } 
   .donut {
     width: 70%;
     margin-right: -21px;
     margin-left: 30%;
   }
+  */
 }
 .genericName {
   margin-top: 30%;

@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 import ProductList from "./ProductList.component";
+import Navbar from "../Components/navbar";
+import Footer from "../Components/tabBar";
+import "./res_style.css";
+import { Container } from "react-bootstrap";
 
 export default class History extends Component {
   constructor(props) {
@@ -35,9 +39,13 @@ export default class History extends Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="container">{this.historyList()}</div>
-      </div>
+      <>
+        <Navbar />
+        <Container className="history_list ">
+          <div>{this.historyList()}</div>
+        </Container>
+        <Footer />
+      </>
     );
   }
 }
