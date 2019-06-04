@@ -8,7 +8,6 @@ const User = require("../../models/Users");
 //@desc   Profile Route
 //@access public
 router.get("/", auth, async (req, res) => {
-    console.log(req);
     try {
         const user = await User.findById(req.user.id).select("-password");
         res.json(user);
