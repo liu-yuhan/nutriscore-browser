@@ -15,7 +15,7 @@ class Footer extends Component {
           <NavLink className="col-3 text-center" to="/logout">
             <FontAwesomeIcon className="icon_footer" icon="camera" />
           </NavLink>
-          <NavLink className="col-3 text-center" to="/">
+          <NavLink className="col-3 text-center" to="/scan">
             <FontAwesomeIcon className="icon_footer" icon="barcode" />
           </NavLink>
           <NavLink className="col-3 text-center" to="/">
