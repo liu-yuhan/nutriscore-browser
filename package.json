@@ -23,36 +23,13 @@
     "express-validator": "^5.3.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.5.10",
-    "react-donut-chart": "^1.1.8",
-    "mocha": "^6.1.4"
+    "react-donut-chart": "^1.1.8"
   },
   "devDependencies": {
     "chai": "^4.2.0",
     "mocha": "^6.1.4",
     "nodemon": "^1.19.0",
-<<<<<<< master
-<<<<<<< master
     "should": "^13.2.3",
-=======
->>>>>>> Modif test mocha
-=======
-    "should": "^13.2.3",
->>>>>>> Start Mocha test : Login/Register
-    "superagent": "^5.0.5",
-    "supertest": "^4.0.2",
-    "chai": "^4.2.0",
-    "mocha": "^6.1.4",
-    "nodemon": "^1.19.0",
-    "superagent": "^5.0.5",
-    "supertest": "^4.0.2",
-    "chai": "^4.2.0",
-    "mocha": "^6.1.4",
-    "nodemon": "^1.19.0",
-    "superagent": "^5.0.5",
-    "supertest": "^4.0.2",
-    "chai": "^4.2.0",
-    "mocha": "^6.1.4",
-    "nodemon": "^1.19.0",
     "superagent": "^5.0.5",
     "supertest": "^4.0.2"
   }
