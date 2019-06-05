@@ -27,7 +27,7 @@ router.post('/:id', auth, (req, res) => {
           { date: Date.now() },
           { new: true }
         )
-          .then(result => res.json(product))
+          .then(result => res.json({msg: 'Product update'}))
           .catch(err => console.log(err));
       }
     })
