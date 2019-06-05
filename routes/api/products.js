@@ -29,7 +29,7 @@ router.post("/:id", auth, (req, res) => {
           { date: Date.now() },
           { new: true }
         )
-          .then(result => res.json({msg: 'Product update'}))
+          .then(result => res.json({ msg: "Product update" }))
           .catch(err => console.log(err));
       }
       console.log(req.user.id);
@@ -49,7 +49,7 @@ router.get("/:user_id", async (req, res) => {
   }
 });
 
-router.post('/:id', auth, async (req, res) => {
+router.post("/:id", auth, async (req, res) => {
   try {
     const newProduct = new Product({
       barcode: req.params.id,
@@ -60,10 +60,27 @@ router.post('/:id', auth, async (req, res) => {
     res.json(product);
   } catch (error) {
     console.error(error.message);
-    res.status(500).send('Server Error');
+    res.status(500).send("Server Error");
   }
-})
+});
 
+router.delete("/:barcode", auth, async (req, res) => {
+  try {
+    const product = await Product.findOne({
+      $and: [{ barcode: req.params.barcode }, { user: req.user.id }]
+    });
+    if (!product) {
+      return res.status(404).json({ msg: "Product not found" });
+    }
+    await product.remove();
 
+    res.json({ msg: "Product removed " });
+  } catch (error) {
+    if (error.kind === "ObjectId") {
+      return res.status(404).json({ msg: "Product not found" });
+    }
+    res.status(500).send("Server error");
+  }
+});
 
 module.exports = router;
