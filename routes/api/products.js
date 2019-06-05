@@ -9,16 +9,18 @@ router.post("/:id", auth, (req, res) => {
     $and: [{ barcode: req.params.id }, { user: req.user.id }]
   })
     .then(result => {
+      console.log(result);
       if (result === null) {
         const newProduct = new Product({
           barcode: req.params.id,
           user: req.user.id,
           date: Date.now()
         });
+        console.log(newProduct);
         const product = newProduct.save(err => {
           if (err) console.log(err);
           else {
-            res.json(newProduct);
+            res.json(product);
           }
         });
       } else {
@@ -30,6 +32,7 @@ router.post("/:id", auth, (req, res) => {
           .then(result => res.json({msg: 'Product update'}))
           .catch(err => console.log(err));
       }
+      console.log(req.user.id);
     })
     .catch(error => console.log(error));
 });
@@ -48,8 +51,9 @@ router.get("/:user_id", async (req, res) => {
 
 router.delete("/:barcode", auth, async (req, res) => {
   try {
-    const product = await Product.findOne({
-      $and: [{ barcode: req.params.barcode }, { user: req.user.id }]
+    const newProduct = new Product({
+      barcode: req.params.id,
+      user: req.user.id
     });
     if (!product) {
       return res.status(404).json({ msg: "Product not found" });
@@ -63,6 +67,8 @@ router.delete("/:barcode", auth, async (req, res) => {
     }
     res.status(500).send("Server error");
   }
-});
+})
+
+
 
 module.exports = router;

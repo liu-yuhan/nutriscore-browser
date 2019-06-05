@@ -4,6 +4,7 @@ var server = require('../server');
 let chai = require('chai');
 let chaiHttp = require('chai-http');
 const User = require('../models/Users');
+let expect = require('chai').expect
 
 chai.use(chaiHttp);
 chai.should();
@@ -25,8 +26,8 @@ describe("Test Users", () => {
             .then(res => {
                 console.log('MongoDB cleaned before ending the tests.')
                 done();
-            });
-        })
+        });
+    })
 
     it("should register a user", (done) => {
         chai.request(server)
@@ -101,5 +102,46 @@ describe("Test Users", () => {
                 done();
                 });
     });
+
+    it("should not delete user cause token invalid",(done) => {
+        chai.request(server)
+            .delete('/api/users/delete')
+            .set(
+                "x-auth-token", 'token'
+            )
+            .end((err,res)=>{
+                res.should.have.status(401)
+                expect(res.body).to.deep.equal({msg:'Token is not valid'})
+                done()
+            })
+    })
+
+    it("should delete user",(done) => {
+        chai.request(server)
+            .delete('/api/users/delete')
+            .set(
+                "x-auth-token", token
+            )
+            .end((err,res)=>{
+                res.should.have.status(200)
+                expect(res.body).to.deep.equal({ msg: "User deleted" })
+                done()
+            })
+    })
+
+    it("should not delete user cause already delete",(done) => {
+        chai.request(server)
+            .delete('/api/users/delete')
+            .set(
+                "x-auth-token", token
+            )
+            .end((err,res)=>{
+                res.should.have.status(404)
+                expect(res.body).to.deep.equal({msg: 'User does not exist'})
+                done()
+            })
+    })
+
+    
 
 });

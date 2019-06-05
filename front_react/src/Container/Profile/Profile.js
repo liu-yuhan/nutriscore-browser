@@ -20,6 +20,9 @@ class Profile extends Component {
     };
   }
 
+  componentWillMount() {
+    document.body.style.background = "#ffffff";
+  }
   componentDidMount() {
       const getToken = localStorage.getItem("jwToken");
 
