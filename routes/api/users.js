@@ -77,13 +77,14 @@ router.post(
   }
 );
 
-router.delete("/delete/:id", auth, async (req, res) => {
+router.delete("/delete", auth, async (req, res) => {
   try {
-    await User.findOneAndRemove({ _id: req.user.id });
-    if (req.user.id !== req.params.id) {
-      return res.status(401).json({ msg: "not authorize" });
+    const user = await User.findOneAndRemove({ _id: req.user.id });
+
+    if(!user) {
+      return res.status(404).json({msg: 'User does not exist'})
     }
-    res.json({ msg: "user deleted enfin" });
+    res.json({ msg: "User deleted" });
   } catch (error) {
     console.error(error.message);
     res.status(500).json("Server Error");
