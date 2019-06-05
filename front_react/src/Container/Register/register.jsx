@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { Form, Col, Button, Row } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 import { Redirect } from "react-router-dom";
-import Header from "../../Components/header";
-import "../container_style.css";
+import Navbar from "../../Components/navbar";
+import Footer from "../../Components/tabBar";
+import "../container_res_style.css";
 import { register } from "../../redux/action";
 import { connect } from "react-redux";
 import jwt_decode from "jwt-decode";
@@ -19,8 +20,8 @@ class Register extends Component {
     };
   }
   changeHandler = event => {
-    var stateName = event.target.name;
-    var newValue = event.target.value;
+    let stateName = event.target.name;
+    let newValue = event.target.value;
     this.setState({ [stateName]: newValue });
     //console.log(this.state);
   };
@@ -34,12 +35,13 @@ class Register extends Component {
     }
   };
   componentWillMount() {
+    document.body.style.background = "#ffffff";
     const getToken = localStorage.getItem("jwToken");
     if (getToken) {
       const decodeToken = jwt_decode(getToken);
       const currentTime = Date.now() / 1000;
       if (decodeToken.exp >= currentTime) {
-        this.props.history.replace("/home");
+        this.props.history.replace("/profile");
       }
     }
   }
@@ -47,15 +49,15 @@ class Register extends Component {
     console.log(this.props.user);
     const { msg, token } = this.props.user;
     if (token) {
-      return <Redirect to="/home" />;
+      return <Redirect to="/profile" />;
     }
 
     return (
       <div>
-        <Header />
+        <Navbar />
         <div className="container mx-auto register_form">
           {msg ? <h1> {msg}</h1> : null}
-          <Form className="container my-3 d-block">
+          <Form className="container d-block">
             <Form.Group controlId="form_register_name">
               <Form.Control
                 name="name"
@@ -96,6 +98,7 @@ class Register extends Component {
             </Button>
           </Form>
         </div>
+        <Footer />
       </div>
     );
   }

@@ -1,0 +1,152 @@
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+@media (min-width: 320px) and (max-width: 480px) {
+  /* Start for login page */
+  .login_form {
+    margin-top: 67%;
+  }
+  .register_form {
+    margin-top: 60%;
+  }
+  /*End for login page */
+  /* Start for profile page */
+  #profile_info_zone {
+    margin-top: 15%;
+    display: block;
+  }
+  #profile_img {
+    width: 60%;
+    margin-top: 13%;
+  }
+  #profile_card {
+    margin-top: 13%;
+    width: 100%;
+  }
+  #profile_card_body {
+    margin-top: 5%;
+  }
+  /* End for profile page */
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+@media (min-width: 481px) and (max-width: 767px) {
+  /* Start for login page */
+  .login_form {
+    margin-top: 45%;
+  }
+  .register_form {
+    margin-top: 43%;
+  }
+  /*End for login page */
+  /* Start for profile page */
+  #profile_info_zone {
+    margin-top: 15%;
+    display: block;
+  }
+  #profile_img {
+    width: 50%;
+    margin-top: 5%;
+  }
+  #profile_card {
+    margin-top: 10%;
+    width: 100%;
+  }
+  #profile_card_body {
+    margin-top: 5%;
+  }
+  /* End for profile page */
+}
+
+/* 
+  ##Device = Tablets, Ipads
+  ##Screen = B/w 768px to 1024px
+*/
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* Start for login page */
+  .login_form {
+    margin-top: 45%;
+  }
+  .register_form {
+    margin-top: 25%;
+  }
+  /*End for login page */
+  /* Start for profile page */
+  #profile_info_zone {
+    margin-top: 15%;
+    display: block;
+  }
+  #profile_img {
+    width: 50%;
+    margin-top: 5%;
+  }
+  #profile_card {
+    margin-top: 10%;
+  }
+  #profile_card_body {
+    margin-top: 5%;
+  }
+  /* End for profile page */
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+@media (min-width: 1025px) and (max-width: 1280px) {
+  /* Start for login page */
+  .login_form {
+    margin-top: 25%;
+  }
+  .register_form {
+    margin-top: 23%;
+  }
+  /*End for login page */
+  /* Start for profile page */
+  #profile_info_zone {
+    margin-top: 15%;
+    display: block;
+  }
+  #profile_img {
+    width: 85%;
+    margin-top: 10%;
+  }
+  #profile_card {
+    margin-top: 10%;
+    margin-left: 5%;
+  }
+  /* End for profile page */
+}
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+@media (min-width: 1281px) {
+  /* Start for login page */
+  .login_form {
+    margin-top: 27%;
+  }
+  .register_form {
+    margin-top: 28%;
+  }
+  /*End for login page */
+  /* Start for profile page */
+  #profile_info_zone {
+    margin-top: 15%;
+    display: block;
+  }
+  #profile_img {
+    width: 100%;
+    margin-top: 10%;
+  }
+  #profile_card {
+    margin-top: 10%;
+    margin-left: 5%;
+  }
+  /* End for profile page */
+}

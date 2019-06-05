@@ -1,12 +1,13 @@
-import { reqRegister, reqLogin } from "../api_connection/index";
+import { reqRegister, reqLogin, reqProfile } from "../api_connection/index";
 
-import { USER_VALID, ERR_MSG, USER_LOGIN } from "./action_type";
+import { USER_VALID, ERR_MSG, USER_LOGIN, USER_PROFILE } from "./action_type";
 import setAuthToken from "../utils/setAuthToken.js";
 
 // synchronize function wait to be called in asyn function register
 const userValid = user => ({ type: USER_VALID, data: user });
 const errorMsg = err => ({ type: ERR_MSG, data: err });
 const userLogin = user => ({ type: USER_LOGIN, data: user });
+const userProfile = user => ({ type: USER_PROFILE, data: user });
 
 export const register = user => {
   const { name, email, password, password_confirm } = user;
@@ -45,11 +46,29 @@ export const login = user => {
   return async dispatch => {
     const response = await reqLogin({ email, password });
     const result = response.data;
-    console.log(result);
-    if (result.code === 0) {
-      dispatch(userLogin(result));
-    } else {
+    // console.log(result);
+    if (result.code === 1) {
+      //code 0, register success
+      //dispacher success action
+      // dispatch(userValid(result.data));
       dispatch(errorMsg(result.errors[0].msg));
+    } else {
+      // console.log("result: ", result);
+      const { token } = result;
+      localStorage.setItem("jwToken", token);
+      setAuthToken(token);
+      dispatch(userLogin(result));
     }
+  };
+};
+
+export const editprofile = user => {
+  const { id, name, email } = user;
+
+  return async dispatch => {
+    const response = await reqProfile({ id, name, email });
+    const result = response.data;
+    console.log("Profile", result);
+    dispatch(userProfile(result));
   };
 };
