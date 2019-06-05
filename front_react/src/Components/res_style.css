@@ -197,6 +197,21 @@
     font-size: 35px;
   }
   /* END src/container/tabbar  */
+  /* Start /result */
+  .result_title {
+    margin-top: 15%;
+  }
+  #result_grade {
+    margin-top: 20%;
+    height: 100px;
+  }
+  #result_product_photo {
+    width: 75%;
+  }
+  .result_donut {
+    width: 90%;
+  }
+  /* End /result */
 }
 
 /* 
@@ -242,4 +257,21 @@
     font-size: 50px;
   }
   /* END src/container/tabbar  */
+  /* Start /result */
+  .result_title {
+    margin-top: 18%;
+  }
+  #result_grade {
+    height: 150px;
+    margin-left: 5%;
+  }
+  #result_product_photo {
+    width: 75%;
+    margin-left: 15%;
+  }
+  .result_donut {
+    margin-top: 5%;
+    width: 90%;
+  }
+  /* End /result */
 }
