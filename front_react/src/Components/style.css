@@ -1,4 +1,28 @@
 /* For NavBar*/
+@font-face {
+  font-family: "Blanch Caps Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: url("fonts/blanch_caps-webfont.woff") format("woff"),
+    url("fonts/blanch_caps-webfont.ttf") format("ttf");
+  font-size: 4rem;
+}
+
+.header {
+  color: aliceblue;
+  background-color: #07a995;
+  height: 60px;
+  padding-top: 40px;
+}
+.logo {
+  font-family: "Blanch Caps Regular";
+  font-size: 4rem;
+}
+.navbar {
+  color: aliceblue;
+  background-color: #07a995;
+  height: 50px;
+}
 .response {
   height: "mx-auto py-auto";
   width: 700px;
@@ -88,4 +112,24 @@
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.2) 0 1px 3px;
   color: #8898a5;
+}
+/* for Cover Page */
+#cover_logo {
+  width: 50vw;
+  margin-top: 10vh;
+  margin-left: 30vw;
+}
+
+#cover_image {
+  /* height: 619px;*/
+  display: block;
+}
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans");
+@import url("https://fonts.googleapis.com/css?family=Chenla&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lobster&display=swap");
+#cover_title {
+  color: aliceblue;
+  font-family: "Blanch Caps Regular", cursive;
+  margin-top: 5vh;
+  font-size: 8rem;
 }

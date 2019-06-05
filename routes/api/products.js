@@ -9,14 +9,12 @@ router.post('/:id', auth, (req, res) => {
     $and: [{ barcode: req.params.id }, { user: req.user.id }]
   })
     .then(result => {
-      console.log(result);
       if (result === null) {
         const newProduct = new Product({
           barcode: req.params.id,
           user: req.user.id,
           date: Date.now()
         });
-        console.log(newProduct);
         const product = newProduct.save(err => {
           if (err) console.log(err);
           else {
@@ -29,10 +27,9 @@ router.post('/:id', auth, (req, res) => {
           { date: Date.now() },
           { new: true }
         )
-          .then(result => res.json(product))
+          .then(result => res.json({msg: 'Product update'}))
           .catch(err => console.log(err));
       }
-      console.log(req.user.id);
     })
     .catch(error => console.log(error));
 });

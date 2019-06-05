@@ -28,19 +28,17 @@ router.post(
     })
   ],
   async (req, res) => {
-    console.log(req.body);
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ code: 1, errors: errors.array() });
     }
     const { name, email, password } = req.body;
-    console.log(name);
     try {
       let user = await User.findOne({ email: email });
       if (user) {
         return (
           res
-            // .status(400)
+            .status(400)
             .json({ code: 1, errors: [{ msg: "User already exists" }] })
         );
       }
