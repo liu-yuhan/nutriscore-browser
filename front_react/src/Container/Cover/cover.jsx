@@ -20,7 +20,7 @@ export default class Cover extends Component {
     otherwise, to login page.
    */
   enterAppHandler = event => {
-    console.log("button clicked");
+    // console.log("button clicked");
     const getToken = localStorage.getItem("jwToken");
     if (getToken) {
       console.log("gotToken");

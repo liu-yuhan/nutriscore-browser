@@ -1,6 +1,8 @@
 import React from "react";
 import { Motion, StaggeredMotion, spring } from "react-motion";
 import range from "lodash.range";
+import jwt_decode from "jwt-decode";
+import axios from "axios";
 
 // Components
 
@@ -176,11 +178,32 @@ class MenuProfile extends React.PureComponent {
   }
 
   static deletefunction() {
-    return alert('Button 0');
+    const getToken = localStorage.getItem("jwToken");
+
+    if (!getToken) {
+      this.props.history.push("/login");
+    } else {
+      const decodeToken = jwt_decode(getToken);
+      this.setState({id: decodeToken.user.id});
+      axios
+          .delete("http://localhost:5000/api/users/delete", {
+            headers: {
+              "Content-Type": "application/json",
+              "x-auth-token": getToken
+            }
+          })
+          .then(response => {
+            console.log('Response', response);
+            this.props.history.push("/logout");
+          })
+          .catch(error => {
+            console.log(error);
+          });
+    }
   }
 
   static editfunction() {
-    console.log(this.props);
+    // console.log(this.props);
     return this.props.history.push({
       pathname: '/profile/edit',
       data: this.props.data
