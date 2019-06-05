@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { Col, Row, Card, Container } from "react-bootstrap";
 import Navbar from "../../Components/navbar";
-import { connect } from "react-redux";
-import { profile } from "../../redux/action";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
 import moment from "moment";
@@ -26,38 +24,33 @@ class Profile extends Component {
     document.body.style.background = "#ffffff";
   }
   componentDidMount() {
-    const getToken = localStorage.getItem("jwToken");
+      const getToken = localStorage.getItem("jwToken");
 
-    if (!getToken) {
-      this.props.history.push("/login");
-    } else {
-      const decodeToken = jwt_decode(getToken);
-      this.setState({ id: decodeToken.user.id });
-      axios
-        .get("http://localhost:5000/api/profile", {
-          headers: {
-            "Content-Type": "application/json",
-            "x-auth-token": getToken
-          }
-        })
-        .then(response => {
-          // console.log(response);
-          this.setState({
-            name: response.data.name,
-            email: response.data.email,
-            date: response.data.date
-          });
-        })
-        .catch(error => {
-          console.log(error);
-        });
-    }
+      if (!getToken) {
+          this.props.history.push("/login");
+      } else {
+          const decodeToken = jwt_decode(getToken);
+          this.setState({id: decodeToken.user.id});
+          axios
+              .get("http://localhost:5000/api/profile", {
+                  headers: {
+                      "Content-Type": "application/json",
+                      "x-auth-token": getToken
+                  }
+              })
+              .then(response => {
+                  // console.log('Response', response);
+                  this.setState({
+                      name: response.data.name,
+                      email: response.data.email,
+                      date: response.data.date
+                  });
+              })
+              .catch(error => {
+                  console.log(error);
+              });
+      }
   }
-
-  //       console.log("State.id : ", this.state);
-  //       this.props.profile(this.state);
-  //     }
-  //   }
 
   render() {
     return (
@@ -75,7 +68,7 @@ class Profile extends Component {
               </Col>
               <Col lg={4}>
                 <Card border="light" id="profile_card">
-                  <MenuProfile props={this.props} />
+                  <MenuProfile data={this.state} history={this.props.history} />
                   <Card.Header>User's Profile</Card.Header>
                   <Card.Body>
                     <Card.Title>Username : {this.state.name}</Card.Title>
@@ -122,7 +115,4 @@ class Profile extends Component {
   }
 }
 
-export default connect(
-  state => ({ user: state.user }),
-  { profile }
-)(Profile);
+export default Profile;
