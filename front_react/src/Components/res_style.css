@@ -1,5 +1,14 @@
 @import url("https://fonts.googleapis.com/css?family=Lobster&display=swap");
 
+@font-face {
+  font-family: "Blanch Caps Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: url("fonts/blanch_caps-webfont.woff") format("woff"),
+  url("fonts/blanch_caps-webfont.ttf") format("ttf");
+  font-size: 4rem;
+}
+
 .main-button {
   position: absolute;
   width: 90px;
@@ -44,9 +53,9 @@
   }
   #cover_title {
     color: aliceblue;
-    font-family: "Lobster", cursive;
-    margin-top: 28%;
-    font-size: 70px;
+    font-family: "Blanch Caps Regular", cursive;
+    margin-top: 5vh;
+    font-size: 120px;
   }
   /*END  src/container/cover*/
   /* START src/container/navbar  */
@@ -111,9 +120,9 @@
   }
   #cover_title {
     color: aliceblue;
-    font-family: "Lobster", cursive;
+    font-family: "Blanch Caps Regular", cursive;
     margin-top: 28%;
-    font-size: 70px;
+    font-size: 120px;
   }
   /*END  src/container/cover*/
   /* START src/container/navbar  */
@@ -163,9 +172,9 @@
   }
   #cover_title {
     color: aliceblue;
-    font-family: "Lobster", cursive;
+    font-family: "Blanch Caps Regular", cursive;
     margin-top: 28%;
-    font-size: 70px;
+    font-size: 120px;
   }
   /*END  src/container/cover*/
   /* START src/container/navbar  */
@@ -215,9 +224,9 @@
   }
   #cover_title {
     color: aliceblue;
-    font-family: "Lobster", cursive;
+    font-family: "Blanch Caps Regular", cursive;
     margin-top: 15%;
-    font-size: 70px;
+    font-size: 120px;
   }
   /*END  src/container/cover*/
   /* START src/container/navbar  */
@@ -284,9 +293,9 @@
   }
   #cover_title {
     color: aliceblue;
-    font-family: "Lobster", cursive;
+    font-family: "Blanch Caps Regular", cursive;
     margin-top: 13%;
-    font-size: 70px;
+    font-size: 120px;
   }
   /*END  src/container/cover*/
   /* START src/container/navbar  */
