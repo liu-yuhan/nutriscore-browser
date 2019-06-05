@@ -19,9 +19,21 @@ import {
   faStroopwafel,
   faCoffee,
   faCamera,
-  faBarcode
+  faBarcode,
+  faBook,
+  faIdCard,
+  faSignOutAlt
 } from "@fortawesome/free-solid-svg-icons";
-library.add(faCamera, faCoffee, faCamera, faBarcode, faStroopwafel);
+library.add(
+  faCamera,
+  faCoffee,
+  faCamera,
+  faBarcode,
+  faStroopwafel,
+  faBook,
+  faIdCard,
+  faSignOutAlt
+);
 
 ReactDOM.render(
   <Provider store={store}>

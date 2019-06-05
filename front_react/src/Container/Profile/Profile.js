@@ -24,32 +24,32 @@ class Profile extends Component {
     document.body.style.background = "#ffffff";
   }
   componentDidMount() {
-      const getToken = localStorage.getItem("jwToken");
+    const getToken = localStorage.getItem("jwToken");
 
-      if (!getToken) {
-          this.props.history.push("/login");
-      } else {
-          const decodeToken = jwt_decode(getToken);
-          this.setState({id: decodeToken.user.id});
-          axios
-              .get("http://localhost:5000/api/profile", {
-                  headers: {
-                      "Content-Type": "application/json",
-                      "x-auth-token": getToken
-                  }
-              })
-              .then(response => {
-                  // console.log('Response', response);
-                  this.setState({
-                      name: response.data.name,
-                      email: response.data.email,
-                      date: response.data.date
-                  });
-              })
-              .catch(error => {
-                  console.log(error);
-              });
-      }
+    if (!getToken) {
+      this.props.history.push("/login");
+    } else {
+      const decodeToken = jwt_decode(getToken);
+      this.setState({ id: decodeToken.user.id });
+      axios
+        .get("http://localhost:5000/api/profile", {
+          headers: {
+            "Content-Type": "application/json",
+            "x-auth-token": getToken
+          }
+        })
+        .then(response => {
+          // console.log('Response', response);
+          this.setState({
+            name: response.data.name,
+            email: response.data.email,
+            date: response.data.date
+          });
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
   }
 
   render() {
