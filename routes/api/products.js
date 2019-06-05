@@ -20,7 +20,7 @@ router.post("/:id", auth, (req, res) => {
         const product = newProduct.save(err => {
           if (err) console.log(err);
           else {
-            res.json(product);
+            res.json(newProduct);
           }
         });
       } else {
@@ -49,6 +49,7 @@ router.get("/:user_id", async (req, res) => {
   }
 });
 
+<<<<<<< HEAD
 router.post("/:id", auth, async (req, res) => {
   try {
     const newProduct = new Product({
@@ -67,6 +68,8 @@ router.post("/:id", auth, async (req, res) => {
   }
 });
 
+=======
+>>>>>>> 7f599c510d8260d235d35998fa07d094f939b947
 router.delete("/:barcode", auth, async (req, res) => {
   try {
     const product = await Product.findOne({

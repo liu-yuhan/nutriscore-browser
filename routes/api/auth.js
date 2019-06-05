@@ -42,8 +42,8 @@ router.post(
       if (!user) {
         return (
           res
-            .status(400)
             .json({ code: 1, errors: [{ msg: "Invalid credentials" }] })
+            .status(400)
         );
       }
 
@@ -52,8 +52,8 @@ router.post(
       if (!isMatch) {
         return (
           res
-            .status(400)
             .json({ code: 1, errors: [{ msg: "Invalid credentials" }] })
+            .status(400)
         );
       }
 
