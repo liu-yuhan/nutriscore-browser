@@ -49,6 +49,24 @@ router.get("/:user_id", async (req, res) => {
   }
 });
 
+router.post("/:id", auth, async (req, res) => {
+  try {
+    const newProduct = new Product({
+      barcode: req.params.id,
+      user: req.user.id
+    });
+    if (!product) {
+      return res.status(404).json({ msg: "Product not found" });
+    }
+    await product.remove();
+
+    res.json({ msg: "Product removed " });
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Server Error");
+  }
+});
+
 router.delete("/:barcode", auth, async (req, res) => {
   try {
     const product = await Product.findOne({
