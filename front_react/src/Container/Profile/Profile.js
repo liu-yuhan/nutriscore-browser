@@ -72,7 +72,12 @@ class Profile extends Component {
                   <Card.Header>User's Profile</Card.Header>
                   <Card.Body>
                     <Card.Title>Username : {this.state.name}</Card.Title>
-                    <Card.Text>Email : {this.state.email}</Card.Text>
+                    <Card.Text>
+                      Email:
+                      <a href={"mailto:" + this.props.email}>
+                        {this.state.email}{" "}
+                      </a>
+                    </Card.Text>
                     <Card.Text>
                       Created at :{" "}
                       {moment(this.state.date).format("MMMM Do YYYY")}
@@ -98,7 +103,12 @@ class Profile extends Component {
                   />
                   <Card.Body className="text-center" id="profile_card_body">
                     <Card.Title>Username : {this.state.name}</Card.Title>
-                    <Card.Text>Email : {this.state.email}</Card.Text>
+                    <Card.Text>
+                      Email:
+                      <a href={"mailto:" + this.props.email}>
+                        {this.state.email}{" "}
+                      </a>
+                    </Card.Text>
                     <Card.Text>
                       Created at :{" "}
                       {moment(this.state.date).format("MMMM Do YYYY")}
