@@ -46,7 +46,7 @@ class Register extends Component {
     }
   }
   render() {
-    console.log(this.props.user);
+    // console.log(this.props.user);
     const { msg, token } = this.props.user;
     if (token) {
       return <Redirect to="/profile" />;

@@ -45,7 +45,7 @@ class Login extends Component {
     }
   }
   render() {
-    // console.log(this.props.user);
+    // console.log(this.state);
     const { msg, token } = this.props.user;
     if (token) {
       // console.log(token);
