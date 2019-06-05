@@ -15,20 +15,25 @@ export default class History extends Component {
     };
   }
 
-  componentWillMount() {
-    const token = localStorage.jwToken;
-    const decoded = jwt_decode(token);
-    axios
-      .get("http://localhost:5000/api/product/" + decoded.user.id)
-      .then(res => {
-        console.log(res.data);
-        this.setState({
-          history: res.data
+  componentDidMount() {
+    const getToken = localStorage.getItem("jwToken");
+
+    if (!getToken) {
+      this.props.history.push("/login");
+    } else {
+      const decoded = jwt_decode(getToken);
+      axios
+        .get("http://localhost:5000/api/product/" + decoded.user.id)
+        .then(res => {
+          console.log(res.data);
+          this.setState({
+            history: res.data
+          });
+        })
+        .catch(err => {
+          console.log(err);
         });
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    }
   }
 
   historyList() {
