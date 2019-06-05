@@ -44,14 +44,14 @@
   /* END src/container/tabbar  */
   /* Start /result */
   .result_title {
-    margin-top: 30%;
+    margin-top: 20%;
   }
   #result_grade {
-    margin-top: 30%;
+    margin-top: 20%;
     height: 100px;
   }
   #result_product_photo {
-    width: 75%;
+    width: 100%;
   }
   .result_donut {
     width: 90%;
@@ -59,11 +59,12 @@
   /* End /result */
   /*Start /history */
   .history_list {
-    margin-top: 35%;
+    margin-top: 20%;
   }
   .product_list {
     margin-top: 5%;
   }
+  /*End /history */
 }
 /* 
     ##Device = Low Resolution Tablets, Mobiles (Landscape)
@@ -108,12 +109,20 @@
     font-size: 35px;
   }
   /* END src/container/tabbar  */
+  /*Start /history */
+  .history_list {
+    margin-top: 35%;
+  }
+  .product_list {
+    margin-top: 5%;
+  }
+  /*End /history */
 }
 /* 
     ##Device = Tablets, Ipads
     ##Screen = B/w 768px to 1024px
   */
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
   /*src/container/cover */
   #cover_logo {
     width: 30%;
@@ -134,12 +143,12 @@
   .headNav {
     color: aliceblue;
     background-color: #07a995;
-    height: 155px;
+    height: 111px;
   }
   .headNav_logo {
-    width: 13%;
-    height: 80%;
-    margin-left: 45%;
+    width: 8%;
+    height: 94%;
+    margin-left: 47%;
   }
   /* END src/container/navbar  */
   /* START src/container/tabbar  */
@@ -152,11 +161,18 @@
     font-size: 50px;
   }
   /* END src/container/tabbar  */
+  /*Start /history */
+  .history_list {
+    margin-top: 7%;
+  }
+  .product_list {
+    margin-top: 5%;
+  }
+  /*End /history */
 }
 /* 
     ##Device = Laptops, Desktops, 
     ##Screen = B/w 1025px to 1280px
-
   */
 @media only screen and (min-width: 1025px) and (max-width: 1280px) {
   /*src/container/cover */
@@ -197,21 +213,30 @@
     font-size: 35px;
   }
   /* END src/container/tabbar  */
-  /* Start /result */
   .result_title {
-    margin-top: 15%;
+    margin-top: 7%;
   }
   #result_grade {
-    margin-top: 20%;
-    height: 100px;
+    height: 150px;
+    margin-left: 5%;
   }
   #result_product_photo {
     width: 75%;
+    margin-left: 15%;
   }
   .result_donut {
+    margin-top: 5%;
     width: 90%;
   }
   /* End /result */
+  /*Start /history */
+  .history_list {
+    margin-top: 7%;
+  }
+  .product_list {
+    margin-top: 5%;
+  }
+  /*End /history */
 }
 
 /* 
@@ -242,9 +267,9 @@
     height: 165px;
   }
   .headNav_logo {
-    width: 8%;
-    height: 85%;
-    margin-left: 45%;
+    width: 6%;
+    height: 100%;
+    margin-left: 47%;
   }
   /* END src/container/navbar  */
   /* START src/container/tabbar  */
@@ -259,7 +284,7 @@
   /* END src/container/tabbar  */
   /* Start /result */
   .result_title {
-    margin-top: 18%;
+    margin-top: 7%;
   }
   #result_grade {
     height: 150px;
@@ -274,4 +299,12 @@
     width: 90%;
   }
   /* End /result */
+  /*Start /history */
+  .history_list {
+    margin-top: 7%;
+  }
+  .product_list {
+    margin-top: 5%;
+  }
+  /*End /history */
 }

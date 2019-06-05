@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Axios from "axios";
-import { login } from "../redux/action";
 import Navbar from "../Components/navbar";
 import Footer from "../Components/tabBar";
 import DonutChart from "react-donut-chart";
@@ -73,12 +72,17 @@ class Result extends Component {
               ) : null}
               <Row>
                 {resultScan.product.image_front_url ? (
-                  <Col xs={{ span: 4, offset: 1 }} md={{ span: 4, offset: 2 }}>
+                  <Col
+                    xs={{ span: 4, offset: 1 }}
+                    md={{ span: 4, offset: 2 }}
+                    className="my-auto"
+                  >
                     <Image
                       className="mt-3"
                       src={resultScan.product.image_front_url}
                       alt="result_product_photo"
                       id="result_product_photo"
+                      fluid
                     />
                   </Col>
                 ) : null}
