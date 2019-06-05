@@ -4,6 +4,7 @@ const { check, validationResult } = require("express-validator/check");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const config = require("config");
+const auth = require("../middleware/auth");
 
 const User = require("../../models/Users");
 
@@ -77,5 +78,18 @@ router.post(
     }
   }
 );
+
+router.delete("/delete/:id", auth, async (req, res) => {
+  try {
+    await User.findOneAndRemove({ _id: req.user.id });
+    if (req.user.id !== req.params.id) {
+      return res.status(401).json({ msg: "not authorize" });
+    }
+    res.json({ msg: "user deleted enfin" });
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json("Server Error");
+  }
+});
 
 module.exports = router;
