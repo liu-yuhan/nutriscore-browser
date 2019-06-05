@@ -175,20 +175,20 @@ class MenuProfile extends React.PureComponent {
     return this.arrayFunctions[index]();
   }
 
-    static editfunction() {
-        console.log(this.props);
-        return this.props.history.push({
-            pathname: '/profile/edit',
-            data: this.props.data
-        });
-    }
+  static deletefunction() {
+    return alert('Button 0');
+  }
 
-    static scanfunction() {
-        return this.props.history.push('/scan');
-    }
+  static editfunction() {
+    console.log(this.props);
+    return this.props.history.push({
+      pathname: '/profile/edit',
+      data: this.props.data
+    });
+  }
 
   static scanfunction() {
-    return this.props.props.history.push("/scan");
+    return this.props.history.push('/scan');
   }
 
   renderChildButtons() {

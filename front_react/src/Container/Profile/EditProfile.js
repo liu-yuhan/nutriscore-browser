@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Form, Button } from "react-bootstrap";
 import Header from "../../Components/header";
-import "../container_style.css";
+import "../container_res_style.css";
 import { connect } from "react-redux";
 import { editprofile } from "../../redux/action";
 import jwt_decode from "jwt-decode";
@@ -59,6 +59,7 @@ class EditProfile extends Component {
     render() {
         const { msg } = this.props.user;
         let user = this.props.location.data;
+        console.log('User : ', user);
         if (!user) {
             return <Redirect to="/profile" />;
         }
