@@ -20,7 +20,7 @@ router.post("/:id", auth, (req, res) => {
         const product = newProduct.save(err => {
           if (err) console.log(err);
           else {
-            res.json(product);
+            res.json(newProduct);
           }
         });
       } else {
@@ -46,21 +46,6 @@ router.get("/:user_id", async (req, res) => {
     }
   } catch (error) {
     res.status(500).json({ msg: "Internal server error" });
-  }
-});
-
-router.post("/:id", auth, async (req, res) => {
-  try {
-    const newProduct = new Product({
-      barcode: req.params.id,
-      user: req.user.id
-    });
-    const product = await newProduct.save();
-
-    res.json(product);
-  } catch (error) {
-    console.error(error.message);
-    res.status(500).send("Server Error");
   }
 });
 
