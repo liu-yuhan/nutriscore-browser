@@ -9,17 +9,17 @@ class Footer extends Component {
     return (
       <div className="footer mx-auto py-auto">
         <Navbar className="footer" expand="lg" fixed="bottom">
-          <NavLink className="col-3 text-center" to="/login">
-            <FontAwesomeIcon className="icon_footer" icon="coffee" />
-          </NavLink>
-          <NavLink className="col-3 text-center" to="/logout">
-            <FontAwesomeIcon className="icon_footer" icon="camera" />
-          </NavLink>
-          <NavLink className="col-3 text-center" to="/">
+          <NavLink className="col-3 text-center" to="/scan">
             <FontAwesomeIcon className="icon_footer" icon="barcode" />
           </NavLink>
-          <NavLink className="col-3 text-center" to="/">
-            <FontAwesomeIcon className="icon_footer" icon="stroopwafel" />
+          <NavLink className="col-3 text-center" to="/history">
+            <FontAwesomeIcon className="icon_footer" icon="book" />
+          </NavLink>
+          <NavLink className="col-3 text-center" to="/profile">
+            <FontAwesomeIcon className="icon_footer" icon="id-card" />
+          </NavLink>
+          <NavLink className="col-3 text-center" to="/logout">
+            <FontAwesomeIcon className="icon_footer" icon="sign-out-alt" />
           </NavLink>
         </Navbar>
       </div>

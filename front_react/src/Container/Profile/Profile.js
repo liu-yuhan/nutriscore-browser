@@ -24,32 +24,32 @@ class Profile extends Component {
     document.body.style.background = "#ffffff";
   }
   componentDidMount() {
-      const getToken = localStorage.getItem("jwToken");
+    const getToken = localStorage.getItem("jwToken");
 
-      if (!getToken) {
-          this.props.history.push("/login");
-      } else {
-          const decodeToken = jwt_decode(getToken);
-          this.setState({id: decodeToken.user.id});
-          axios
-              .get("http://localhost:5000/api/profile", {
-                  headers: {
-                      "Content-Type": "application/json",
-                      "x-auth-token": getToken
-                  }
-              })
-              .then(response => {
-                  // console.log('Response', response);
-                  this.setState({
-                      name: response.data.name,
-                      email: response.data.email,
-                      date: response.data.date
-                  });
-              })
-              .catch(error => {
-                  console.log(error);
-              });
-      }
+    if (!getToken) {
+      this.props.history.push("/login");
+    } else {
+      const decodeToken = jwt_decode(getToken);
+      this.setState({ id: decodeToken.user.id });
+      axios
+        .get("http://localhost:5000/api/profile", {
+          headers: {
+            "Content-Type": "application/json",
+            "x-auth-token": getToken
+          }
+        })
+        .then(response => {
+          // console.log('Response', response);
+          this.setState({
+            name: response.data.name,
+            email: response.data.email,
+            date: response.data.date
+          });
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
   }
 
   render() {
@@ -72,7 +72,12 @@ class Profile extends Component {
                   <Card.Header>User's Profile</Card.Header>
                   <Card.Body>
                     <Card.Title>Username : {this.state.name}</Card.Title>
-                    <Card.Text>Email : {this.state.email}</Card.Text>
+                    <Card.Text>
+                      Email:
+                      <a href={"mailto:" + this.props.email}>
+                        {this.state.email}{" "}
+                      </a>
+                    </Card.Text>
                     <Card.Text>
                       Created at :{" "}
                       {moment(this.state.date).format("MMMM Do YYYY")}
@@ -98,7 +103,12 @@ class Profile extends Component {
                   />
                   <Card.Body className="text-center" id="profile_card_body">
                     <Card.Title>Username : {this.state.name}</Card.Title>
-                    <Card.Text>Email : {this.state.email}</Card.Text>
+                    <Card.Text>
+                      Email:
+                      <a href={"mailto:" + this.props.email}>
+                        {this.state.email}{" "}
+                      </a>
+                    </Card.Text>
                     <Card.Text>
                       Created at :{" "}
                       {moment(this.state.date).format("MMMM Do YYYY")}
