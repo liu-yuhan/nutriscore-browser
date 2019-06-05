@@ -1,4 +1,33 @@
 @import url("https://fonts.googleapis.com/css?family=Lobster&display=swap");
+
+.main-button {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  border-radius: 100%;
+  background-color: #07a995;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  font-weight: lighter;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
+.child-button {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 1px 3px;
+  color: #8898a5;
+}
 /* 
   ##Device = Most of the Smartphones Mobiles (Portrait)
   ##Screen = B/w 320px to 479px
@@ -122,7 +151,7 @@
     ##Device = Tablets, Ipads
     ##Screen = B/w 768px to 1024px
   */
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
+@media only screen and (min-width: 765px) and (max-width: 1024px) {
   /*src/container/cover */
   #cover_logo {
     width: 30%;
@@ -264,7 +293,7 @@
   .headNav {
     color: aliceblue;
     background-color: #07a995;
-    height: 165px;
+    height: 80px;
   }
   .headNav_logo {
     width: 6%;
