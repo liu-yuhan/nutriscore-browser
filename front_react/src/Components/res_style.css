@@ -37,6 +37,11 @@
   box-shadow: rgba(0, 0, 0, 0.2) 0 1px 3px;
   color: #8898a5;
 }
+
+.history_list {
+    margin-bottom: 20%;
+}
+
 /* 
   ##Device = Most of the Smartphones Mobiles (Portrait)
   ##Screen = B/w 320px to 479px
