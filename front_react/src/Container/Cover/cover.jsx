@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Button } from "react-bootstrap";
-import Cover_img from "../../Components/cover";
+import cover_img from "../../Components/cover";
 import jwt_decode from "jwt-decode";
+
 export default class Cover extends Component {
   constructor(props) {
     super(props);
@@ -38,7 +39,7 @@ export default class Cover extends Component {
   render() {
     return (
       <div id="coverPage" className="h-100 ">
-        <Cover_img />
+        <cover_img />
         <Button
           className="fixed-bottom"
           variant="secondary"

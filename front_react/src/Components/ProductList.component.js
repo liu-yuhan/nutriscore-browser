@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import getNutriScore from "../utils/getNutriScore";
-import { Card, Col, Row, Image } from "react-bootstrap";
+import { Col, Row, Image } from "react-bootstrap";
 import "./res_style.css";
 
 export default class ProductList extends Component {
@@ -30,7 +30,7 @@ export default class ProductList extends Component {
         this.setState({
           info_Article: res.data
         });
-        console.log("response", res.data);
+        // console.log("response", res.data);
       })
       .catch(err => {
         console.log(err);

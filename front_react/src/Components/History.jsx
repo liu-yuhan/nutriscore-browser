@@ -25,7 +25,7 @@ export default class History extends Component {
       axios
         .get("http://localhost:5000/api/product/" + decoded.user.id)
         .then(res => {
-          console.log(res.data);
+          // console.log(res.data);
           this.setState({
             history: res.data
           });

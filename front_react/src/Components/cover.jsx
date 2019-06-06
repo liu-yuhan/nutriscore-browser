@@ -5,7 +5,7 @@ export default class Cover_img extends Component {
   render() {
     return (
       <div id="cover_image" className="h-100">
-        <img id="cover_logo" src="final.gif" />
+        <img id="cover_logo" src="final.gif" alt="cover_logo" />
         <h1 id="cover_title" className="mx-auto text-center">
           PINE APP
         </h1>
