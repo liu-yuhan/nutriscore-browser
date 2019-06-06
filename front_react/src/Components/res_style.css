@@ -5,7 +5,7 @@
   font-style: normal;
   font-weight: normal;
   src: url("fonts/blanch_caps-webfont.woff") format("woff"),
-  url("fonts/blanch_caps-webfont.ttf") format("ttf");
+    url("fonts/blanch_caps-webfont.ttf") format("ttf");
   font-size: 4rem;
 }
 
@@ -62,22 +62,22 @@
   .headNav {
     color: aliceblue;
     background-color: #07a995;
-    height: 12%;
+    height: 10%;
   }
   .headNav_logo {
-    width: 18%;
+    width: 10%;
     height: 90%;
-    margin-left: 42%;
+    margin-left: 45%;
   }
   /* END src/container/navbar  */
   /* START src/container/tabbar */
   .footer {
-    height: 10%;
+    height: 8%;
     background-color: #07a995;
   }
   .icon_footer {
     color: aliceblue;
-    font-size: 35px;
+    font-size: 25px;
   }
   /* END src/container/tabbar  */
   /* Start /result */
@@ -108,10 +108,11 @@
     ##Device = Low Resolution Tablets, Mobiles (Landscape)
     ##Screen = B/w 481px to 767px
   */
-@media only screen and (min-width: 481px) and (max-width: 767px) {
+@media only screen and (min-width: 481px) and (max-width: 823px) {
   /*src/container/cover */
   #cover_logo {
-    width: 40%;
+    width: 25%;
+    height: 10%;
     margin-top: 35%;
     margin-left: 35%;
   }
@@ -129,22 +130,22 @@
   .headNav {
     color: aliceblue;
     background-color: #07a995;
-    height: 120px;
+    height: 70px;
   }
   .headNav_logo {
-    width: 17%;
-    height: 75%;
-    margin-left: 42%;
+    width: 12%;
+    height: 70%;
+    margin-left: 45%;
   }
   /* END src/container/navbar  */
   /* START src/container/tabbar  */
   .footer {
-    height: 10%;
+    height: 8%;
     background-color: #07a995;
   }
   .icon_footer {
     color: aliceblue;
-    font-size: 35px;
+    font-size: 30px;
   }
   /* END src/container/tabbar  */
   /*Start /history */
@@ -152,7 +153,7 @@
     margin-top: 35%;
   }
   .product_list {
-    margin-top: 5%;
+    margin-top: 0%;
   }
   /*End /history */
 }
@@ -181,22 +182,22 @@
   .headNav {
     color: aliceblue;
     background-color: #07a995;
-    height: 111px;
+    height: 90px;
   }
   .headNav_logo {
     width: 8%;
-    height: 94%;
+    height: 85%;
     margin-left: 47%;
   }
   /* END src/container/navbar  */
   /* START src/container/tabbar  */
   .footer {
-    height: 10%;
+    height: 8%;
     background-color: #07a995;
   }
   .icon_footer {
     color: aliceblue;
-    font-size: 50px;
+    font-size: 30px;
   }
   /* END src/container/tabbar  */
   /*Start /history */
@@ -204,7 +205,7 @@
     margin-top: 7%;
   }
   .product_list {
-    margin-top: 5%;
+    margin-top: 25%;
   }
   /*End /history */
 }
@@ -243,12 +244,12 @@
   /* END src/container/navbar  */
   /* START src/container/tabbar  */
   .footer {
-    height: 10%;
+    height: 8%;
     background-color: #07a995;
   }
   .icon_footer {
     color: aliceblue;
-    font-size: 35px;
+    font-size: 30px;
   }
   /* END src/container/tabbar  */
   .result_title {
@@ -269,7 +270,7 @@
   /* End /result */
   /*Start /history */
   .history_list {
-    margin-top: 7%;
+    margin-top: 14%;
   }
   .product_list {
     margin-top: 5%;
@@ -302,22 +303,22 @@
   .headNav {
     color: aliceblue;
     background-color: #07a995;
-    height: 80px;
+    height: 50px;
   }
   .headNav_logo {
-    width: 6%;
-    height: 100%;
+    width: 2%;
+    height: 95%;
     margin-left: 47%;
   }
   /* END src/container/navbar  */
   /* START src/container/tabbar  */
   .footer {
-    height: 10%;
+    height: 8%;
     background-color: #07a995;
   }
   .icon_footer {
     color: aliceblue;
-    font-size: 50px;
+    font-size: 30px;
   }
   /* END src/container/tabbar  */
   /* Start /result */
