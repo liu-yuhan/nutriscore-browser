@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import { ScanSettings} from "scandit-sdk";
 import ScanditBarcodeScanner from "scandit-sdk-react";
-import Header from "./header";
+import Navbar from "./navbar";
+import Footer from "./tabBar";
 import Axios from "axios";
 import config from './configScan';
+import "./res_style.css";
 
 const style = {
   position: "absolute",
@@ -37,8 +39,8 @@ class Scan extends Component {
   render() {
     return (
 
-        <div className='container' style={style}>
-            <Header />
+        <div className='scan_container' style={style}>
+        <Navbar/>
           <ScanditBarcodeScanner
           licenseKey={config.scandit.licenceKey}
           engineLocation="https://unpkg.com/scandit-sdk@^3.1.0/build"
@@ -51,6 +53,7 @@ class Scan extends Component {
           playSoundOnScan={true}
           vibrateOnScan={true}
         />
+        <Footer/>
       </div>
     );
   }

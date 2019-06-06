@@ -73,7 +73,7 @@ class Profile extends Component {
                   <Card.Body>
                     <Card.Title>Username : {this.state.name}</Card.Title>
                     <Card.Text>
-                      Email:
+                      Email :{" "}
                       <a href={"mailto:" + this.props.email}>
                         {this.state.email}{" "}
                       </a>

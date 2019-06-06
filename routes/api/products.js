@@ -49,6 +49,7 @@ router.get("/:user_id", async (req, res) => {
   }
 });
 
+
 router.post("/:id", auth, async (req, res) => {
   try {
     const newProduct = new Product({
@@ -66,6 +67,7 @@ router.post("/:id", auth, async (req, res) => {
     res.status(500).send("Server Error");
   }
 });
+
 
 router.delete("/:barcode", auth, async (req, res) => {
   try {
