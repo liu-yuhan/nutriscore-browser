@@ -37,9 +37,20 @@ export default class History extends Component {
   }
 
   historyList() {
-    return this.state.history.map((currentHistory, i) => {
-      return <ProductList history={currentHistory} key={i} />;
-    });
+    if (this.state.history.length > 0) {
+      return this.state.history.map((currentHistory, i) => {
+        return <ProductList history={currentHistory} key={i} />;
+      });
+    } else {
+      return (
+        <div
+          className="badge badge-primary text-wrap font-weight-bolder"
+          style={{ marginTop: 270, marginLeft: 110 }}
+        >
+          No product scan yet !
+        </div>
+      );
+    }
   }
 
   render() {
