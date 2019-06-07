@@ -36,6 +36,14 @@ export default class ProductList extends Component {
         console.log(err);
       });
   }
+  onclickButton = () => {
+    const getToken = localStorage.getItem("jwToken");
+    axios.delete(
+      "http://localhost:5000/api/product/" + this.props.history.barcode,
+      { headers: { "x-auth-token": getToken } }
+    );
+    window.location.reload();
+  };
 
   render() {
     return (
@@ -73,6 +81,12 @@ export default class ProductList extends Component {
                 ) : null}
               </p>
             ) : null}
+            <button
+              onClick={() => this.onclickButton()}
+              className="btnDelete btn btn-danger mb-1 ml-4"
+            >
+              Delete
+            </button>
           </Col>
         </Row>
         {/* 
