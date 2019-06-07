@@ -11,13 +11,13 @@ export default class History extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      history: []
+      history: [],
+      check: false
     };
   }
 
   componentDidMount() {
     const getToken = localStorage.getItem("jwToken");
-
     if (!getToken) {
       this.props.history.push("/login");
     } else {
@@ -29,6 +29,7 @@ export default class History extends Component {
           this.setState({
             history: res.data
           });
+          console.log(this.state.history);
         })
         .catch(err => {
           console.log(err);
@@ -43,10 +44,7 @@ export default class History extends Component {
       });
     } else {
       return (
-        <div
-          className="badge badge-primary text-wrap font-weight-bolder"
-          style={{ marginTop: 270, marginLeft: 110 }}
-        >
+        <div className="noScan badge badge-primary text-wrap font-weight-bolder">
           No product scan yet !
         </div>
       );

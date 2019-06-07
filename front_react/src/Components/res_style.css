@@ -39,7 +39,7 @@
 }
 
 .history_list {
-    margin-bottom: 20%;
+  margin-bottom: 20%;
 }
 
 /* 
@@ -52,6 +52,10 @@
     width: 48%;
     margin-top: 22%;
     margin-left: 29%;
+  }
+  .noScan {
+    margin-top: 55%;
+    margin-left: 25%;
   }
   #cover_image {
     display: block;
@@ -124,6 +128,10 @@
   #cover_image {
     display: block;
   }
+  .noScan {
+    margin-top: 55%;
+    margin-left: 35%;
+  }
   #cover_title {
     color: aliceblue;
     font-family: "Blanch Caps Regular", cursive;
@@ -171,6 +179,10 @@
   #cover_logo {
     width: 30%;
     margin-top: 40%;
+    margin-left: 35%;
+  }
+  .noScan {
+    margin-top: 90%;
     margin-left: 35%;
   }
   #cover_image {
@@ -227,6 +239,10 @@
   }
   #cover_image {
     display: block;
+  }
+  .noScan {
+    margin-top: 55%;
+    margin-left: 45%;
   }
   #cover_title {
     color: aliceblue;
@@ -349,6 +365,10 @@
   }
   .product_list {
     margin-top: 5%;
+  }
+  .noScan {
+    margin-top: 40%;
+    margin-left: 40%;
   }
   /*End /history */
 }
