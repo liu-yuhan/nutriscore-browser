@@ -38,8 +38,8 @@ router.post(
       if (user) {
         return (
           res
-            .status(400)
-            .json({ code: 1, errors: [{ msg: "User already exists" }] })
+              .json({ code: 1, errors: [{ msg: "User already exists" }] })
+              .status(400)
         );
       }
 

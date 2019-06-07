@@ -53,7 +53,7 @@ describe("Test Users", () => {
             password: "test12"
             })
             .end((err, res) => {
-                res.should.have.status(400);
+                res.should.have.status(200);
                 done();
             });
     });
@@ -82,7 +82,7 @@ describe("Test Users", () => {
             })
     
             .end((err, res) => {
-                res.should.have.status(400);
+                res.should.have.status(200);
                 //res.body.should.be.a('object');
                 done();
             });
@@ -97,7 +97,7 @@ describe("Test Users", () => {
             })
     
             .end((err, res) => {
-                res.should.have.status(400);
+                res.should.have.status(200);
                 //res.body.should.be.a('object');
                 done();
                 });
