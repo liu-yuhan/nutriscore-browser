@@ -24,7 +24,6 @@ export default class Cover extends Component {
     // console.log("button clicked");
     const getToken = localStorage.getItem("jwToken");
     if (getToken) {
-      console.log("gotToken");
       const decodeToken = jwt_decode(getToken);
       const currentTime = Date.now() / 1000;
       if (decodeToken.exp >= currentTime) {
